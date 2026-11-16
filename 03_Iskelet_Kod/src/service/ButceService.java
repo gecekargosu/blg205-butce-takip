@@ -1,5 +1,8 @@
 package service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import model.ButceHesabi;
 import model.Gelir;
 import model.Gider;
@@ -57,13 +60,18 @@ public class ButceService {
      * Java bunlari otomatik olarak ust tipe ceviriyor. Diziye de ust tipten
      * girdigi icin cok bicimlilik burada gerceklesiyor.
      */
-    public void islemEkle(Islem islem) {
+    public boolean islemEkle(Islem islem) {
+        if (islem == null) {
+            System.out.println("Uyari: kayit bos olamaz.");
+            return false;
+        }
         if (islemSayisi >= islemler.length) {
             System.out.println("Uyari: islem kapasitesi doldu.");
-            return;
+            return false;
         }
         islemler[islemSayisi] = islem;
         islemSayisi = islemSayisi + 1;
+        return true;
     }
 
     /**
@@ -144,6 +152,20 @@ public class ButceService {
         return toplam;
     }
 
+    /**
+     * Yalnizca verilen aya (MM.yyyy) ait giderleri toplar.
+     * Aylik limit denetimi tum kayitlara degil bu toplama bakmali.
+     */
+    public double toplamGider(String ayYil) {
+        double toplam = 0;
+        for (int i = 0; i < islemSayisi; i++) {
+            if (islemler[i].butceEtkisi() < 0 && islemler[i].ayYil().equals(ayYil)) {
+                toplam = toplam + (-islemler[i].butceEtkisi());
+            }
+        }
+        return toplam;
+    }
+
     /** netBakiye sonucunu hesaplayip dondurur. */
     public double netBakiye() {
         return hesap.getBaslangicBakiye() + toplamGelir() - toplamGider();
@@ -194,9 +216,13 @@ public class ButceService {
             System.out.println("Net bakiye       :  +" + Islem.paraYaz(net) + " TL");
         }
 
+        String buAy = LocalDate.now().format(DateTimeFormatter.ofPattern("MM.yyyy"));
+        double buAyGider = toplamGider(buAy);
+
+        System.out.println("Bu ay gider      :  -" + Islem.paraYaz(buAyGider) + " TL  (" + buAy + ")");
         System.out.println("Aylik limit      :   " + Islem.paraYaz(hesap.getAylikLimit()) + " TL");
 
-        if (hesap.limitAsildiMi(gider)) {
+        if (hesap.limitAsildiMi(buAyGider)) {
             System.out.println("Limit durumu     : Sinir asildi");
         } else {
             System.out.println("Limit durumu     : Sinir asilmadi");

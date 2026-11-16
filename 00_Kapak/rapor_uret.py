@@ -110,7 +110,6 @@ def kapak():
     <tr><td class="b">Proje Türü</td><td class="i">:</td><td>Bireysel proje</td></tr>
     <tr><td class="b">Teslim Tarihi</td><td class="i">:</td><td>16.11.2026</td></tr>
   </table>
-  <div class="muhur"><div class="kutu">mühür / kaşe</div></div>
 </div>
 <div class="sayfa"></div>
 """
@@ -261,12 +260,18 @@ public class Gider extends Islem {{      // model/Gider.java
 <p>Servis sınıfı bu çağrıyı tek satırda yapar. Nesnenin gerçek türü çalışma anında belirlenir, kod
 değişmez.</p>
 <pre>for (int i = 0; i &lt; islemSayisi; i++) {{
-    toplam = toplam + islemler[i].butceEtkisi();   // hangi alt sınıfsa o çalışır
+    if (islemler[i].butceEtkisi() &gt; 0) {{      // hangi alt sınıfsa o çalışır
+        toplam = toplam + islemler[i].butceEtkisi();
+    }}
 }}</pre>
 
 <h2>3.2 Kapsülleme ve doğrulama</h2>
 <p>Bütün alanlar private. Geçersiz değer setter içinde reddediliyor ve eski değer korunuyor. Böylece
-nesne hiçbir zaman tutarsız duruma geçmiyor. Aşağıdaki örnekte sıfır ve eksi tutar kabul edilmiyor.</p>
+nesne hiçbir zaman tutarsız duruma geçmiyor. Aşağıdaki örnekte sıfır ve eksi tutar kabul edilmiyor.
+Menüden girilen kayıtta ayrıca kaynak ve ödeme yönteminin boş olmaması, seçilen kategorinin
+işlem türüyle uyuşması (gelire yalnız GELIR kategorisi) ve tarihin gg.aa.yyyy biçiminde
+gerçek bir takvim günü olması denetleniyor. Tarih denetimi java.time.LocalDate ve
+ResolverStyle.STRICT ile yapılıyor, 31.02.2026 gibi günler reddediliyor.</p>
 <pre>public void setTutar(double tutar) {{
     if (tutar &lt;= 0) {{
         System.out.println("Uyari: tutar sifir veya eksi olamaz, eski deger korundu.");

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+import os
+
+KLASOR = os.path.dirname(os.path.abspath(__file__))
 """Kalan isler takvimini HTML (PDF icin) ve XLSX olarak uretir."""
 
 ISLER = [
@@ -6,7 +9,7 @@ ISLER = [
     ("2",  "Derlenebilir iskelet kod", "15.11.2026", "16.11.2026", "sekiz sınıf, javac temiz", "Tamamlandı"),
     ("3",  "Ara teslim paketi ve UZEM yüklemesi", "16.11.2026", "16.11.2026", "ZIP", "Tamamlandı"),
     ("4",  "Git deposu ve düzenli commitler", "16.11.2026", "18.12.2026", "GitHub bağlantısı", "Sürüyor"),
-    ("5",  "Gelir ve gider ekleme ekranları", "17.11.2026", "23.11.2026", "kullanıcı girişli menü", "Bekliyor"),
+    ("5",  "Gelir ve gider ekleme ekranları", "17.11.2026", "23.11.2026", "menü 4-5, kaynak/ödeme/tarih doğrulaması", "Tamamlandı"),
     ("6",  "Arayüz tanımı ve uygulanması", "24.11.2026", "30.11.2026", "Raporlanabilir arayüzü", "Bekliyor"),
     ("7",  "Doğrulama ve özel istisna sınıfı", "24.11.2026", "30.11.2026", "exception paketi, try-catch", "Bekliyor"),
     ("8",  "ArrayList ve HashMap'e geçiş", "01.12.2026", "07.12.2026", "koleksiyon tabanlı servis", "Bekliyor"),
@@ -130,7 +133,7 @@ Kâğıt üzerinde kalan iş, teslim edilmiş iş değil.</div>
 </body></html>
 """ % (satirlar, GEREKSINIM, EK_PUAN)
 
-with open("Kalan_Isler_ve_Takvim.html", "w", encoding="utf-8") as f:
+with open(os.path.join(KLASOR, "Kalan_Isler_ve_Takvim.html"), "w", encoding="utf-8") as f:
     f.write(html)
 
 # ------------------------------------------------------------------ xlsx
@@ -202,7 +205,7 @@ try:
     for kolon, genislik in (("A", 24), ("B", 52), ("C", 26), ("D", 20)):
         ws3.column_dimensions[kolon].width = genislik
 
-    wb.save("Kalan_Isler_ve_Takvim.xlsx")
+    wb.save(os.path.join(KLASOR, "Kalan_Isler_ve_Takvim.xlsx"))
     print("xlsx yazildi")
 except Exception as hata:
     print("xlsx atlandi:", hata)

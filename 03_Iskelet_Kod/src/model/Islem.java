@@ -1,5 +1,10 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+
 /**
  * Gelir ve gider kayitlarinin ortak ust sinifi.
  * Bu sinif soyut cunku tek basina bir islem anlami yok.
@@ -17,6 +22,10 @@ public abstract class Islem {
     private String aciklama;
     private double tutar;
     private String tarih;          // gg.aa.yyyy biciminde metin
+
+    /** Tarihlerin beklenen bicimi. Hem dogrulamada hem ay filtresinde kullanilir. */
+    private static final DateTimeFormatter TARIH_BICIMI =
+            DateTimeFormatter.ofPattern("dd.MM.uuuu").withResolverStyle(ResolverStyle.STRICT);
     private Kategori kategori;
 
     /** Yeni bir Islem nesnesi olusturur. */
@@ -25,8 +34,8 @@ public abstract class Islem {
         this.id = sayac;
         setAciklama(aciklama);
         setTutar(tutar);
-        this.tarih = tarih;
-        this.kategori = kategori;
+        setTarih(tarih);
+        setKategori(kategori);
     }
 
     /** Id degerini dondurur. */
@@ -70,6 +79,48 @@ public abstract class Islem {
             return;
         }
         this.tutar = tutar;
+    }
+
+    /**
+     * Tarihi dogrular ve atar. gg.aa.yyyy biciminde olmayan metin reddedilir,
+     * eski deger korunur. Dogrulama java.time.LocalDate ile yapiliyor.
+     */
+    public void setTarih(String tarih) {
+        if (!gecerliTarih(tarih)) {
+            System.out.println("Uyari: tarih gg.aa.yyyy biciminde olmali, eski deger korundu.");
+            return;
+        }
+        this.tarih = tarih;
+    }
+
+    /** Kategori null olamaz, eski deger korunur. */
+    public void setKategori(Kategori kategori) {
+        if (kategori == null) {
+            System.out.println("Uyari: kategori bos olamaz, eski deger korundu.");
+            return;
+        }
+        this.kategori = kategori;
+    }
+
+    /**
+     * Metnin gg.aa.yyyy biciminde gecerli bir tarih olup olmadigini soyler.
+     * 31.02.2026 gibi takvimde olmayan gunler de reddedilir.
+     */
+    public static boolean gecerliTarih(String tarih) {
+        if (tarih == null || tarih.trim().equals("")) {
+            return false;
+        }
+        try {
+            LocalDate.parse(tarih.trim(), TARIH_BICIMI);
+            return true;
+        } catch (DateTimeParseException hata) {
+            return false;
+        }
+    }
+
+    /** Ay filtresi icin tarihin ay ve yilini MM.yyyy biciminde dondurur. */
+    public String ayYil() {
+        return tarih.substring(3, 10);
     }
 
     /** Sayac degerini dondurur. */

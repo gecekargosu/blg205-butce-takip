@@ -5,6 +5,7 @@ import java.util.Scanner;
 import model.ButceHesabi;
 import model.Gelir;
 import model.Gider;
+import model.Islem;
 import model.Kategori;
 import model.SabitGider;
 import service.ButceService;
@@ -111,8 +112,24 @@ public class Main {
             System.out.println("Hata: aciklama bos olamaz. Kayit eklenmedi.");
             return;
         }
+        if (kaynak.equals("")) {
+            System.out.println("Hata: kaynak bos olamaz. Kayit eklenmedi.");
+            return;
+        }
+        if (!kategori.getTip().equals("GELIR")) {
+            System.out.println("Hata: " + kategori.getAd() + " bir gider kategorisi, gelire eklenemez. Kayit eklenmedi.");
+            return;
+        }
+        if (!Islem.gecerliTarih(tarih)) {
+            System.out.println("Hata: tarih gg.aa.yyyy biciminde olmali (ornek 16.11.2026). Kayit eklenmedi.");
+            return;
+        }
 
-        servis.islemEkle(new Gelir(aciklama, tutar, tarih, kategori, kaynak));
+        boolean eklendi = servis.islemEkle(new Gelir(aciklama, tutar, tarih, kategori, kaynak));
+        if (!eklendi) {
+            System.out.println("Hata: kayit eklenemedi.");
+            return;
+        }
         System.out.println("Kayit eklendi. Numara: #" + servis.sonEklenenId());
     }
 
@@ -146,8 +163,24 @@ public class Main {
             System.out.println("Hata: aciklama bos olamaz. Kayit eklenmedi.");
             return;
         }
+        if (odeme.equals("")) {
+            System.out.println("Hata: odeme yontemi bos olamaz. Kayit eklenmedi.");
+            return;
+        }
+        if (!kategori.getTip().equals("GIDER")) {
+            System.out.println("Hata: " + kategori.getAd() + " bir gelir kategorisi, gidere eklenemez. Kayit eklenmedi.");
+            return;
+        }
+        if (!Islem.gecerliTarih(tarih)) {
+            System.out.println("Hata: tarih gg.aa.yyyy biciminde olmali (ornek 16.11.2026). Kayit eklenmedi.");
+            return;
+        }
 
-        servis.islemEkle(new Gider(aciklama, tutar, tarih, kategori, odeme, false));
+        boolean eklendi = servis.islemEkle(new Gider(aciklama, tutar, tarih, kategori, odeme, false));
+        if (!eklendi) {
+            System.out.println("Hata: kayit eklenemedi.");
+            return;
+        }
         System.out.println("Kayit eklendi. Numara: #" + servis.sonEklenenId());
     }
 

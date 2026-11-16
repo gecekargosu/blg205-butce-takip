@@ -14,10 +14,10 @@ public class ButceHesabi {
 
     /** Yeni bir ButceHesabi nesnesi olusturur. */
     public ButceHesabi(String sahip, String ogrenciNo, double aylikLimit, double baslangicBakiye) {
-        this.sahip = sahip;
-        this.ogrenciNo = ogrenciNo;
+        setSahip(sahip);
+        setOgrenciNo(ogrenciNo);
         setAylikLimit(aylikLimit);
-        this.baslangicBakiye = baslangicBakiye;
+        setBaslangicBakiye(baslangicBakiye);
     }
 
     /** Sahip degerini dondurur. */
@@ -38,6 +38,33 @@ public class ButceHesabi {
     /** BaslangicBakiye degerini dondurur. */
     public double getBaslangicBakiye() {
         return baslangicBakiye;
+    }
+
+    /** Hesap sahibi bos olamaz. */
+    public void setSahip(String sahip) {
+        if (sahip == null || sahip.trim().equals("")) {
+            System.out.println("Uyari: hesap sahibi bos olamaz, eski deger korundu.");
+            return;
+        }
+        this.sahip = sahip;
+    }
+
+    /** Ogrenci numarasi bos olamaz ve yalnizca rakam icerir. */
+    public void setOgrenciNo(String ogrenciNo) {
+        if (ogrenciNo == null || !ogrenciNo.trim().matches("[0-9]{6,12}")) {
+            System.out.println("Uyari: ogrenci numarasi 6-12 haneli sayi olmali, eski deger korundu.");
+            return;
+        }
+        this.ogrenciNo = ogrenciNo.trim();
+    }
+
+    /** Baslangic bakiyesi eksi olamaz. */
+    public void setBaslangicBakiye(double baslangicBakiye) {
+        if (baslangicBakiye < 0) {
+            System.out.println("Uyari: baslangic bakiyesi eksi olamaz, eski deger korundu.");
+            return;
+        }
+        this.baslangicBakiye = baslangicBakiye;
     }
 
     /** Aylik limit sifir veya eksi olamaz. */

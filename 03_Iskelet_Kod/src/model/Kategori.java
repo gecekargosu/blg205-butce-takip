@@ -19,7 +19,7 @@ public class Kategori {
         sayac = sayac + 1;
         this.id = sayac;
         setAd(ad);
-        this.tip = tip;
+        setTip(tip);
     }
 
     /** Id degerini dondurur. */
@@ -44,6 +44,18 @@ public class Kategori {
             return;
         }
         this.ad = ad;
+    }
+
+    /**
+     * Tip yalnizca GELIR veya GIDER olabilir. Baska bir metin gelirse
+     * kayit turu belirsizlesecegi icin reddedilir.
+     */
+    public void setTip(String tip) {
+        if (tip == null || !(tip.trim().equalsIgnoreCase("GELIR") || tip.trim().equalsIgnoreCase("GIDER"))) {
+            System.out.println("Uyari: kategori tipi GELIR veya GIDER olmali, eski deger korundu.");
+            return;
+        }
+        this.tip = tip.trim().toUpperCase();
     }
 
     /** Sayac degerini dondurur. */

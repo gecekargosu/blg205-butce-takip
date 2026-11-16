@@ -86,3 +86,15 @@ o zaman test edilecek.
 Ara rapordaki (01_Ara_Rapor.pdf) sinif tablosu ve UML diyagramiyla kod
 karsilastirildi. Sekiz sinifin adi, alanlari ve metot imzalari ayni.
 UML diyagrami da ayni kaynaktan uretildi.
+
+3. MENU GIRDISI DOGRULAMALARI (16.11.2026)
+------------------------------------------
+1) Gelir ekraninda kaynak bos birakilinca: "Hata: kaynak bos olamaz. Kayit eklenmedi."
+2) Gider ekraninda odeme yontemi bos birakilinca: "Hata: odeme yontemi bos olamaz. Kayit eklenmedi."
+3) Gelire gider kategorisi (Kira) secilince: "Kira bir gider kategorisi, gelire eklenemez."
+4) Gidere gelir kategorisi (Maas) secilince: "Maas bir gelir kategorisi, gidere eklenemez."
+5) Tarih "abc", "31.02.2026" -> "Hata: tarih gg.aa.yyyy biciminde olmali". "29.02.2024" ve
+   "16.11.2026" kabul edildi (artik yil denetimi dogru).
+6) Butce ozeti "Bu ay gider" satiri MM.yyyy filtresiyle hesaplaniyor, limit denetimi
+   tum kayitlara degil bu aylik toplama bakiyor.
+7) islemEkle artik boolean donuyor, kapasite doldugunda Main "Kayit eklendi" yazmiyor.
