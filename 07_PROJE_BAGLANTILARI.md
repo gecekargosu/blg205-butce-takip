@@ -27,6 +27,12 @@ Bu sayfadaki bütün bağlantılar herkese açıktır. Tıklayınca doğrudan de
 | CrewIntel Mobil APK | 1.0 | https://github.com/gecekargosu/crewintel/releases/latest |
 | UMAY EMLAK Windows paketi | Beta v7 | https://github.com/gecekargosu/umay-emlak/releases/latest |
 
-## Not
+## Dönem projesi
 
-BLG205 dönem projesinin kaynak kodu bu paketin içindedir, ayrıca bir depoya yüklenmemiştir. İntihal riski taşıdığı için ders projesinin herkese açık depoda tutulmaması tercih edildi. Sürüm geçmişi yerel Git deposunda tutulmaktadır.
+BLG205 dönem projesinin kaynak kodu bu paketin içindedir. Proje tamamlandığında aşağıdaki adreste herkese açık olarak yayınlanacaktır.
+
+**Depo adı:** blg205-butce-takip
+**Adres:** https://github.com/gecekargosu/blg205-butce-takip
+**Durum:** Henüz yayınlanmadı, final tesliminden önce yüklenecek
+
+Sürüm geçmişi şu an yerel Git deposunda tutulmaktadır. Yükleme yapıldığında kapaktaki ve kaynakçadaki bağlantı bu adrese işaret edecektir.

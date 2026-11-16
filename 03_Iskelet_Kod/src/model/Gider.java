@@ -9,6 +9,7 @@ public class Gider extends Islem {
     private String odemeYontemi;
     private boolean zorunluMu;
 
+    /** Yeni bir Gider nesnesi olusturur. */
     public Gider(String aciklama, double tutar, String tarih, Kategori kategori,
                  String odemeYontemi, boolean zorunluMu) {
         super(aciklama, tutar, tarih, kategori);
@@ -16,14 +17,17 @@ public class Gider extends Islem {
         this.zorunluMu = zorunluMu;
     }
 
+    /** OdemeYontemi degerini dondurur. */
     public String getOdemeYontemi() {
         return odemeYontemi;
     }
 
+    /** isZorunluMu sonucunu hesaplayip dondurur. */
     public boolean isZorunluMu() {
         return zorunluMu;
     }
 
+    /** OdemeYontemi degerini dogrulayarak atar. */
     public void setOdemeYontemi(String odemeYontemi) {
         if (odemeYontemi == null || odemeYontemi.trim().equals("")) {
             System.out.println("Uyari: odeme yontemi bos olamaz, eski deger korundu.");
@@ -32,6 +36,7 @@ public class Gider extends Islem {
         this.odemeYontemi = odemeYontemi;
     }
 
+    /** ZorunluMu degerini dogrulayarak atar. */
     public void setZorunluMu(boolean zorunluMu) {
         this.zorunluMu = zorunluMu;
     }
@@ -41,16 +46,19 @@ public class Gider extends Islem {
      * Gelir sinifinda ayni metot arti donuyor.
      */
     @Override
+    /** butceEtkisi sonucunu hesaplayip dondurur. */
     public double butceEtkisi() {
         return -getTutar();
     }
 
     @Override
+    /** tip sonucunu hesaplayip dondurur. */
     public String tip() {
         return "Gider";
     }
 
     @Override
+    /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
     public String toString() {
         return super.toString() + " | Odeme: " + odemeYontemi;
     }

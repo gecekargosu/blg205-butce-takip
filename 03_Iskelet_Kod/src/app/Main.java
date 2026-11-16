@@ -15,6 +15,7 @@ import service.ButceService;
  */
 public class Main {
 
+    /** main sonucunu hesaplayip dondurur. */
     public static void main(String[] args) {
         ButceHesabi hesap = new ButceHesabi("Cengiz Kilic", "251205027", 25000.0, 5000.0);
         ButceService servis = new ButceService(hesap, 100);

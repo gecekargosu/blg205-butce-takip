@@ -19,6 +19,7 @@ public abstract class Islem {
     private String tarih;          // gg.aa.yyyy biciminde metin
     private Kategori kategori;
 
+    /** Yeni bir Islem nesnesi olusturur. */
     public Islem(String aciklama, double tutar, String tarih, Kategori kategori) {
         sayac = sayac + 1;
         this.id = sayac;
@@ -28,27 +29,32 @@ public abstract class Islem {
         this.kategori = kategori;
     }
 
+    /** Id degerini dondurur. */
     public int getId() {
         return id;
     }
 
+    /** Aciklama degerini dondurur. */
     public String getAciklama() {
         return aciklama;
     }
 
+    /** Tutar degerini dondurur. */
     public double getTutar() {
         return tutar;
     }
 
+    /** Tarih degerini dondurur. */
     public String getTarih() {
         return tarih;
     }
 
+    /** Kategori degerini dondurur. */
     public Kategori getKategori() {
         return kategori;
     }
 
-    // Aciklama bos birakilamaz.
+    /** Aciklama bos birakilamaz. */
     public void setAciklama(String aciklama) {
         if (aciklama == null || aciklama.trim().equals("")) {
             System.out.println("Uyari: aciklama bos birakilamaz, eski deger korundu.");
@@ -57,7 +63,7 @@ public abstract class Islem {
         this.aciklama = aciklama;
     }
 
-    // Tutar sifir veya eksi olamaz.
+    /** Tutar sifir veya eksi olamaz. */
     public void setTutar(double tutar) {
         if (tutar <= 0) {
             System.out.println("Uyari: tutar sifir veya eksi olamaz, eski deger korundu.");
@@ -66,15 +72,16 @@ public abstract class Islem {
         this.tutar = tutar;
     }
 
+    /** Sayac degerini dondurur. */
     public static int getSayac() {
         return sayac;
     }
 
     // Bu islemin butceye etkisi. Gelirde arti, giderde eksi doner.
-    // Govdesi yok, cunku her alt sinif kendi isaretini kendisi biliyor.
+    /** Govdesi yok, cunku her alt sinif kendi isaretini kendisi biliyor. */
     public abstract double butceEtkisi();
 
-    // Islemin turu. Ekranda yazilan etiketi alt sinif belirliyor.
+    /** Islemin turu. Ekranda yazilan etiketi alt sinif belirliyor. */
     public abstract String tip();
 
     /**
@@ -97,6 +104,7 @@ public abstract class Islem {
      * genisletiyor, yani ortak kismi bir kere burada yaziyorum.
      */
     @Override
+    /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
     public String toString() {
         String kategoriAdi = "yok";
         if (kategori != null) {

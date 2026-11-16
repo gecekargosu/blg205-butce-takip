@@ -34,6 +34,8 @@ Ek olarak:
                                    kontrol listesi, seksen madde
    07_PROJE_BAGLANTILARI.md / .pdf hocanin tiklayip ulasacagi GitHub
                                    baglantilari ve indirme adresleri
+   08_YAPILACAKLAR.md / .pdf       otuz islik yol haritasi, ek puan plani,
+                                   GitHub yukleme hatirlatmasi
 
 KONTROL
 Tasarim dosyasindaki iskeletler, UML diyagrami ve java kodu ayni kaynaktan

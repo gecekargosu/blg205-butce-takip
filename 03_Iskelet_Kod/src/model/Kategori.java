@@ -14,6 +14,7 @@ public class Kategori {
     private String ad;
     private String tip;   // "GELIR" veya "GIDER"
 
+    /** Yeni bir Kategori nesnesi olusturur. */
     public Kategori(String ad, String tip) {
         sayac = sayac + 1;
         this.id = sayac;
@@ -21,19 +22,22 @@ public class Kategori {
         this.tip = tip;
     }
 
+    /** Id degerini dondurur. */
     public int getId() {
         return id;
     }
 
+    /** Ad degerini dondurur. */
     public String getAd() {
         return ad;
     }
 
+    /** Tip degerini dondurur. */
     public String getTip() {
         return tip;
     }
 
-    // Kategori adi bos birakilamaz.
+    /** Kategori adi bos birakilamaz. */
     public void setAd(String ad) {
         if (ad == null || ad.trim().equals("")) {
             System.out.println("Uyari: kategori adi bos olamaz, eski deger korundu.");
@@ -42,11 +46,13 @@ public class Kategori {
         this.ad = ad;
     }
 
+    /** Sayac degerini dondurur. */
     public static int getSayac() {
         return sayac;
     }
 
     @Override
+    /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
     public String toString() {
         return id + " - " + ad + " (" + tip + ")";
     }

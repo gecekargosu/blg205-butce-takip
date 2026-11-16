@@ -23,6 +23,7 @@ public class ButceService {
     private Kategori[] kategoriler;
     private int kategoriSayisi;
 
+    /** Yeni bir ButceService nesnesi olusturur. */
     public ButceService(ButceHesabi hesap, int kapasite) {
         this.hesap = hesap;
         this.islemler = new Islem[kapasite];
@@ -31,14 +32,17 @@ public class ButceService {
         this.kategoriSayisi = 0;
     }
 
+    /** Hesap degerini dondurur. */
     public ButceHesabi getHesap() {
         return hesap;
     }
 
+    /** IslemSayisi degerini dondurur. */
     public int getIslemSayisi() {
         return islemSayisi;
     }
 
+    /** kategoriEkle islemini yapar. */
     public void kategoriEkle(Kategori kategori) {
         if (kategoriSayisi >= kategoriler.length) {
             System.out.println("Uyari: kategori kapasitesi doldu.");
@@ -62,6 +66,7 @@ public class ButceService {
         islemSayisi = islemSayisi + 1;
     }
 
+    /** tumIslemleriListele islemini yapar. */
     public void tumIslemleriListele() {
         System.out.println("------- KAYITLI ISLEMLER --------------------------------");
         if (islemSayisi == 0) {
@@ -75,7 +80,7 @@ public class ButceService {
         System.out.println("Toplam kayit: " + islemSayisi);
     }
 
-    // butceEtkisi arti donen kayitlar gelir.
+    /** butceEtkisi arti donen kayitlar gelir. */
     public double toplamGelir() {
         double toplam = 0;
         for (int i = 0; i < islemSayisi; i++) {
@@ -86,7 +91,7 @@ public class ButceService {
         return toplam;
     }
 
-    // butceEtkisi eksi donen kayitlar gider. Toplami duz sayi olarak donduruyorum.
+    /** butceEtkisi eksi donen kayitlar gider. Toplami duz sayi olarak donduruyorum. */
     public double toplamGider() {
         double toplam = 0;
         for (int i = 0; i < islemSayisi; i++) {
@@ -97,6 +102,7 @@ public class ButceService {
         return toplam;
     }
 
+    /** netBakiye sonucunu hesaplayip dondurur. */
     public double netBakiye() {
         return hesap.getBaslangicBakiye() + toplamGelir() - toplamGider();
     }
@@ -128,6 +134,7 @@ public class ButceService {
         System.out.println("Toplam            : " + islemSayisi);
     }
 
+    /** butceOzeti islemini yapar. */
     public void butceOzeti() {
         double gelir = toplamGelir();
         double gider = toplamGider();

@@ -9,17 +9,19 @@ public class SabitGider extends Gider {
 
     private int odemeGunu;   // 1 ile 31 arasi
 
+    /** Yeni bir SabitGider nesnesi olusturur. */
     public SabitGider(String aciklama, double tutar, String tarih, Kategori kategori,
                       String odemeYontemi, int odemeGunu) {
         super(aciklama, tutar, tarih, kategori, odemeYontemi, true);   // sabit giderler zorunludur
         setOdemeGunu(odemeGunu);
     }
 
+    /** OdemeGunu degerini dondurur. */
     public int getOdemeGunu() {
         return odemeGunu;
     }
 
-    // Ayin gunu 1 ile 31 arasinda olmali.
+    /** Ayin gunu 1 ile 31 arasinda olmali. */
     public void setOdemeGunu(int odemeGunu) {
         if (odemeGunu < 1 || odemeGunu > 31) {
             System.out.println("Uyari: odeme gunu 1 ile 31 arasinda olmali, eski deger korundu.");
@@ -30,11 +32,13 @@ public class SabitGider extends Gider {
 
     // Ust siniftaki etiketi degistiriyor, ekranda "Sabit Gider" yazacak.
     @Override
+    /** tip sonucunu hesaplayip dondurur. */
     public String tip() {
         return "Sabit Gider";
     }
 
     @Override
+    /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
     public String toString() {
         return super.toString() + " | Her ayin " + odemeGunu + ". gunu";
     }
