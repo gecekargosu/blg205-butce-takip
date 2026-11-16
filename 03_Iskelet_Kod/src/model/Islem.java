@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
@@ -26,6 +27,14 @@ public abstract class Islem {
     /** Tarihlerin beklenen bicimi. Hem dogrulamada hem ay filtresinde kullanilir. */
     private static final DateTimeFormatter TARIH_BICIMI =
             DateTimeFormatter.ofPattern("dd.MM.uuuu").withResolverStyle(ResolverStyle.STRICT);
+
+    /** 1.1.2026 gibi tek haneli gun ve ay yazimlarini da kabul eden ikinci bicim. */
+    private static final DateTimeFormatter TARIH_BICIMI_KISA =
+            DateTimeFormatter.ofPattern("d.M.uuuu").withResolverStyle(ResolverStyle.STRICT);
+
+    /** Ay filtresi icin kullanilan bicim: 11.2026 */
+    private static final DateTimeFormatter AY_BICIMI =
+            DateTimeFormatter.ofPattern("MM.uuuu").withResolverStyle(ResolverStyle.STRICT);
     private Kategori kategori;
 
     /** Yeni bir Islem nesnesi olusturur. */
@@ -114,13 +123,28 @@ public abstract class Islem {
             LocalDate.parse(tarih.trim(), TARIH_BICIMI);
             return true;
         } catch (DateTimeParseException hata) {
-            return false;
+            try {
+                LocalDate.parse(tarih.trim(), TARIH_BICIMI_KISA);
+                return true;
+            } catch (DateTimeParseException ikinciHata) {
+                return false;
+            }
         }
     }
 
     /** Ay filtresi icin tarihin ay ve yilini MM.yyyy biciminde dondurur. */
     public String ayYil() {
-        return tarih.substring(3, 10);
+        return ay().format(AY_BICIMI);
+    }
+
+    /** Tarihi YearMonth olarak dondurur, karsilastirma ve filtre bunu kullanir. */
+    public YearMonth ay() {
+        String temiz = tarih.trim();
+        try {
+            return YearMonth.from(LocalDate.parse(temiz, TARIH_BICIMI));
+        } catch (DateTimeParseException hata) {
+            return YearMonth.from(LocalDate.parse(temiz, TARIH_BICIMI_KISA));
+        }
     }
 
     /** Sayac degerini dondurur. */

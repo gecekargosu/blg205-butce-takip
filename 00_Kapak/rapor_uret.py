@@ -159,7 +159,9 @@ olarak saklanması. Bu yedi işlevden ilk altısı ara teslimde çalışır duru
 <p>Program tek kullanıcı içindir, çok kullanıcılı bir yapı hedeflenmemiştir. Veritabanı ve harici
 kütüphane kullanılmaz. Arayüz konsol tabanlıdır, grafik arayüz yönergede zorunlu tutulmadığı için
 tercih edilmemiştir. Para birimi Türk lirasıdır, tutarlar kuruş duyarlılığında gösterilir. Tarih alanı
-metin olarak tutulur ve gg.aa.yyyy biçimindedir, tarih aritmetiği bu sürümde yapılmaz.</p>
+metin olarak tutulur ve gg.aa.yyyy bicimindedir. Gecerlilik java.time.LocalDate ve
+ResolverStyle.STRICT ile denetlenir, ay filtresi icin tarih YearMonth'a cevrilir.
+Gun farki gibi tarih aritmetigi bu surumde yapilmaz.</p>
 
 <h1>2. Sınıf Tasarımı</h1>
 <p>Sekiz sınıf üç pakete ayrıldı. Model paketi veriyi, servis paketi iş mantığını, uygulama paketi
@@ -314,6 +316,14 @@ katman kullanıcıdan veri okuyan menü metotları.</p>
 <tr><td>Sıfır veya eksi tutar</td><td>Islem.setTutar</td><td>"Uyari: tutar sifir veya eksi olamaz, eski deger korundu."</td></tr>
 <tr><td>Listede olmayan kategori</td><td>ButceService.kategoriBul</td><td>"Hata: boyle bir kategori yok. Kayit eklenmedi."</td></tr>
 <tr><td>Boş açıklama</td><td>Main.gelirEkle, Main.giderEkle ve Islem.setAciklama</td><td>"Hata: aciklama bos olamaz. Kayit eklenmedi."</td></tr>
+<tr><td>Boş kaynak (gelir) veya boş ödeme yöntemi (gider)</td><td>Main.gelirEkle, Main.giderEkle</td>
+    <td>"Hata: kaynak bos olamaz." / "Hata: odeme yontemi bos olamaz."</td></tr>
+<tr><td>Gelire gider kategorisi, gidere gelir kategorisi seçilmesi</td><td>Main.gelirEkle, Main.giderEkle</td>
+    <td>"Hata: Kira bir gider kategorisi, gelire eklenemez."</td></tr>
+<tr><td>Geçersiz tarih (abc, 31.02.2026)</td><td>Islem.gecerliTarih, Islem.setTarih</td>
+    <td>"Hata: tarih gg.aa.yyyy biciminde olmali."</td></tr>
+<tr><td>Geçersiz kategori tipi</td><td>Kategori.setTip</td>
+    <td>"Uyari: kategori tipi GELIR veya GIDER olmali."</td></tr>
 <tr><td>1 ile 31 dışında ödeme günü</td><td>SabitGider.setOdemeGunu</td><td>"Uyari: odeme gunu 1 ile 31 arasinda olmali, eski deger korundu."</td></tr>
 <tr><td>Menüde olmayan seçim</td><td>Main döngüsü</td><td>"Gecersiz secim. Menudeki bir numarayi girin."</td></tr>
 </table>
@@ -396,6 +406,12 @@ uyarısı veriyor. Uyarı kabul edildi, çünkü geçersiz değerin nesneye hiç
 <code>nextLine()</code> ile metin okunup <code>equals()</code> ile karşılaştırıldı.</td></tr>
 <tr><td>Türkçe karakter bozulması</td><td>Kaynak dosyalar ve konsol çıktısı ASCII tutuldu, derleme
 <code>-encoding UTF-8</code> ile yapılıyor. Bu yüzden bozulma oluşmadı.</td></tr>
+<tr><td>Tarih doğrulanmıyordu</td><td>Menüden "abc" yazıldığında kayıt kabul ediliyordu, aylık limit
+tüm kayıtları topladığı için ay ayrımı yapılamıyordu. Tarih <code>java.time.LocalDate</code> ile STRICT
+doğrulanıyor, <code>31.02.2026</code> reddediliyor, <code>1.1.2026</code> kabul ediliyor. Limit seçili
+ay üzerinden hesaplanıyor.</td></tr>
+<tr><td>Kategori türü ile işlem türü uyuşmuyordu</td><td>Gelire kira, gidere maaş kategorisi
+seçilebiliyordu. <code>Kategori.getTip()</code> işlem türüyle karşılaştırılıyor, uyuşmazsa kayıt eklenmiyor.</td></tr>
 <tr><td>Girdi akışı bitince çökme</td><td>Boru hattıyla beslenen denemede <code>NoSuchElementException</code>
 alındı. Okumalar <code>satirOku()</code> metodundan geçirildi, akış bitince program uyarı verip kapanıyor.</td></tr>
 <tr><td>Ondalık sayı okuma</td><td>Kullanıcı "1500,50" yazdığında sayı olarak algılanmıyordu. Giriş

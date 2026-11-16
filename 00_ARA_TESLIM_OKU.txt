@@ -53,15 +53,14 @@ Is dagilimi:
    model paketi        Islem, Gelir, Gider, SabitGider, Kategori, ButceHesabi
    service paketi      ButceService, is mantiginin tamami
    app paketi          Main, menu ve program dongusu
-   UML                 iki sayfa, kodla birebir dogrulandi
+   UML                 iki sayfa, 16.11.2026'da yeniden uretildi, 63 metot kodla karsilastirildi
    Rapor               on yedi sayfalik tasarim dosyasi
    Takvim              yirmi is, tarih ve cikti ile
 
 KONTROL
 
 Tasarim dosyasindaki iskeletler, UML diyagrami ve java kodu ayni kaynaktan
-uretim. Betikle karsilastirdim, kodda olup UML'de olmayan tek bir sinif
-veya metot yok. Kodu javac ile derledim, hata yok. JDK 17 ile de derlendi.
+uretim. Betikle karsilastirdim, kodda olup UML'de olmayan tek bir sinif veya metot yok (16.11.2026 tarihli UML, kodda 63 metot ile otomatik karsilastirildi) Kodu javac ile derledim, hata yok. JDK 17 ile de derlendi.
 
 HENUZ OLMAYANLAR
 

@@ -1,7 +1,9 @@
 package service;
 
-import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 
 import model.ButceHesabi;
 import model.Gelir;
@@ -25,6 +27,7 @@ public class ButceService {
     private int islemSayisi;
     private Kategori[] kategoriler;
     private int kategoriSayisi;
+    private YearMonth seciliAy;     // butce ozeti ve limit bu aya gore hesaplanir
 
     /** Yeni bir ButceService nesnesi olusturur. */
     public ButceService(ButceHesabi hesap, int kapasite) {
@@ -33,6 +36,47 @@ public class ButceService {
         this.kategoriler = new Kategori[kapasite];
         this.islemSayisi = 0;
         this.kategoriSayisi = 0;
+        this.seciliAy = YearMonth.now();
+    }
+
+    /**
+     * Ozet ve limit icin kullanilan ayi dondurur.
+     * Acilista sistem tarihi yerine kayitlardaki en son ay secilir, boylece
+     * ornek veri ile yapilan sunumda ozet bos gorunmez.
+     */
+    public YearMonth getSeciliAy() {
+        return seciliAy;
+    }
+
+    /**
+     * Ozet ayini degistirir. Metin MM.yyyy biciminde olmali, hatali giris
+     * reddedilir ve eski ay korunur.
+     */
+    public boolean seciliAyAyarla(String metin) {
+        if (metin == null) {
+            return false;
+        }
+        try {
+            seciliAy = YearMonth.parse(metin.trim(),
+                    DateTimeFormatter.ofPattern("MM.uuuu").withResolverStyle(ResolverStyle.STRICT));
+            return true;
+        } catch (DateTimeParseException hata) {
+            return false;
+        }
+    }
+
+    /** Kayitlardaki en son ayi secer, kayit yoksa sistem tarihini kullanir. */
+    public void enSonAyiSec() {
+        YearMonth enSon = null;
+        for (int i = 0; i < islemSayisi; i++) {
+            YearMonth ay = islemler[i].ay();
+            if (enSon == null || ay.isAfter(enSon)) {
+                enSon = ay;
+            }
+        }
+        if (enSon != null) {
+            seciliAy = enSon;
+        }
     }
 
     /** Hesap degerini dondurur. */
@@ -156,10 +200,10 @@ public class ButceService {
      * Yalnizca verilen aya (MM.yyyy) ait giderleri toplar.
      * Aylik limit denetimi tum kayitlara degil bu toplama bakmali.
      */
-    public double toplamGider(String ayYil) {
+    public double toplamGider(YearMonth ay) {
         double toplam = 0;
         for (int i = 0; i < islemSayisi; i++) {
-            if (islemler[i].butceEtkisi() < 0 && islemler[i].ayYil().equals(ayYil)) {
+            if (islemler[i].butceEtkisi() < 0 && islemler[i].ay().equals(ay)) {
                 toplam = toplam + (-islemler[i].butceEtkisi());
             }
         }
@@ -216,10 +260,11 @@ public class ButceService {
             System.out.println("Net bakiye       :  +" + Islem.paraYaz(net) + " TL");
         }
 
-        String buAy = LocalDate.now().format(DateTimeFormatter.ofPattern("MM.yyyy"));
-        double buAyGider = toplamGider(buAy);
+        String buAy = seciliAy.format(DateTimeFormatter.ofPattern("MM.yyyy"));
+        double buAyGider = toplamGider(seciliAy);
 
-        System.out.println("Bu ay gider      :  -" + Islem.paraYaz(buAyGider) + " TL  (" + buAy + ")");
+        System.out.println("Secili ay        :   " + buAy);
+        System.out.println("Bu ay gider      :  -" + Islem.paraYaz(buAyGider) + " TL");
         System.out.println("Aylik limit      :   " + Islem.paraYaz(hesap.getAylikLimit()) + " TL");
 
         if (hesap.limitAsildiMi(buAyGider)) {

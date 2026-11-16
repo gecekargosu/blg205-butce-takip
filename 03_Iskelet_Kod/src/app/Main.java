@@ -22,6 +22,7 @@ public class Main {
         ButceService servis = new ButceService(hesap, 100);
 
         ornekVerileriYukle(servis);
+        servis.enSonAyiSec();   // sunumda ozet bos gorunmesin, en son ay acilir
 
         Scanner giris = new Scanner(System.in);
         boolean calisiyor = true;
@@ -44,6 +45,8 @@ public class Main {
                 gelirEkle(servis, giris);
             } else if (secim.equals("5")) {
                 giderEkle(servis, giris);
+            } else if (secim.equals("6")) {
+                aySec(servis, giris);
             } else if (secim.equals("0")) {
                 System.out.println("Program kapatiliyor.");
                 calisiyor = false;
@@ -211,6 +214,20 @@ public class Main {
         return Double.parseDouble(temiz);
     }
 
+    /**
+     * Butce ozeti ve aylik limit icin kullanilan ayi degistirir.
+     * Sunumda farkli bir ay gostermek gerektiginde kullanilir.
+     */
+    private static void aySec(ButceService servis, Scanner giris) {
+        System.out.print("Ay (MM.yyyy, ornek 11.2026): ");
+        String metin = satirOku(giris).trim();
+        if (servis.seciliAyAyarla(metin)) {
+            System.out.println("Ozet ayi " + servis.getSeciliAy() + " olarak degistirildi.");
+        } else {
+            System.out.println("Hata: ay MM.yyyy biciminde olmali. Eski ay korundu.");
+        }
+    }
+
     private static void menuYazdir() {
         System.out.println("");
         System.out.println("=======================================================");
@@ -221,6 +238,7 @@ public class Main {
         System.out.println("3) Islem turu analizi");
         System.out.println("4) Yeni gelir ekle");
         System.out.println("5) Yeni gider ekle");
+        System.out.println("6) Ozet ayini sec (MM.yyyy)");
         System.out.println("0) Cikis");
         System.out.print("Seciminiz: ");
     }

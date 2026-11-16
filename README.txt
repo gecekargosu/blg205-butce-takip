@@ -22,6 +22,7 @@ Cengiz Kilic - 251205027 - Yapay Zeka ve Makine Ogrenmesi
    3) Islem turu analizi
    4) Yeni gelir ekle
    5) Yeni gider ekle
+   6) Ozet ayini sec (MM.yyyy)
    0) Cikis
 
 5) ORNEK VERI

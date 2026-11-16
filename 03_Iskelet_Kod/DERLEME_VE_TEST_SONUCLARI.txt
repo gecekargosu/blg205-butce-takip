@@ -98,3 +98,13 @@ UML diyagrami da ayni kaynaktan uretildi.
 6) Butce ozeti "Bu ay gider" satiri MM.yyyy filtresiyle hesaplaniyor, limit denetimi
    tum kayitlara degil bu aylik toplama bakiyor.
 7) islemEkle artik boolean donuyor, kapasite doldugunda Main "Kayit eklendi" yazmiyor.
+
+4. AY SECIMI VE TARIH BICIMI (16.11.2026)
+-----------------------------------------
+8) Acilista ozet ayi kayitlardaki en son ay olarak secilir (ornek veride 11.2026).
+   Boylece sunum tarihi farkli olsa da ozet bos gorunmez.
+9) Menu 6 ile ay MM.yyyy biciminde degistirilir, hatali giris eski ayi korur.
+10) Tarih 05.11.2026 bicimiyle birlikte 5.11.2026 gibi tek haneli yazimi da kabul ediyor,
+    31.02.2026 reddediliyor.
+11) UML 16.11.2026'da yeniden uretildi (svg, pdf iki sayfa, png) ve 63 metot kodla
+    otomatik karsilastirildi, eksik yok.

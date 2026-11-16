@@ -7,6 +7,7 @@
 3) Islem turu analizi
 4) Yeni gelir ekle
 5) Yeni gider ekle
+6) Ozet ayini sec (MM.yyyy)
 0) Cikis
 Seciminiz: ------------------ YENI GELIR ------------------
 Kategoriler: 
@@ -25,16 +26,6 @@ Aciklama       : Tutar (TL)     : Tarih          : Kategori adi   : Kaynak      
 3) Islem turu analizi
 4) Yeni gelir ekle
 5) Yeni gider ekle
-0) Cikis
-Seciminiz: Gecersiz secim. Menudeki bir numarayi girin.
-
-=======================================================
-     KISISEL GELIR GIDER VE BUTCE TAKIP SISTEMI
-=======================================================
-1) Tum islemleri listele
-2) Butce ozeti
-3) Islem turu analizi
-4) Yeni gelir ekle
-5) Yeni gider ekle
+6) Ozet ayini sec (MM.yyyy)
 0) Cikis
 Seciminiz: Program kapatiliyor.

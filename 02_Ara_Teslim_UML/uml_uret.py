@@ -144,6 +144,11 @@ isle = kutu(100, 122, 330, "Islem", "abstract",
              "+ getKategori() : Kategori",
              "+ setAciklama(aciklama) : void",
              "+ setTutar(tutar) : void",
+             "+ setTarih(tarih) : void",
+             "+ setKategori(kategori) : void",
+             "+ gecerliTarih(tarih) : boolean   {static}",
+             "+ ayYil() : String",
+             "+ ay() : YearMonth",
              "+ getSayac() : int   {static}",
              "+ butceEtkisi() : double   {abstract}",
              "+ tip() : String   {abstract}",
@@ -160,6 +165,7 @@ kat = kutu(470, 122, 300, "Kategori", None,
             "+ getAd() : String",
             "+ getTip() : String",
             "+ setAd(ad) : void",
+            "+ setTip(tip) : void",
             "+ getSayac() : int   {static}",
             "+ toString() : String"])
 
@@ -206,6 +212,9 @@ hes = kutu(70, 770, 300, "ButceHesabi", None,
             "+ getOgrenciNo() : String",
             "+ getAylikLimit() : double",
             "+ getBaslangicBakiye() : double",
+            "+ setSahip(sahip) : void",
+            "+ setOgrenciNo(no) : void",
+            "+ setBaslangicBakiye(bakiye) : void",
             "+ setAylikLimit(limit) : void",
             "+ limitAsildiMi(toplamGider) : boolean",
             "+ toString() : String"])
@@ -221,7 +230,7 @@ serv = kutu(860, 116, 680, "ButceService", None,
              "+ getHesap() : ButceHesabi",
              "+ getIslemSayisi() : int",
              "+ kategoriEkle(kategori : Kategori) : void",
-             "+ islemEkle(islem : Islem) : void",
+             "+ islemEkle(islem : Islem) : boolean",
              "+ sonEklenenId() : int",
              "+ kategorileriListele() : void",
              "+ kategoriBul(ad : String) : Kategori",
@@ -229,9 +238,13 @@ serv = kutu(860, 116, 680, "ButceService", None,
              "+ tumIslemleriListele() : void",
              "+ toplamGelir() : double",
              "+ toplamGider() : double",
+             "+ toplamGider(ay : YearMonth) : double",
              "+ netBakiye() : double",
              "+ tipAnalizi() : void",
-             "+ butceOzeti() : void"])
+             "+ butceOzeti() : void",
+             "+ getSeciliAy() : YearMonth",
+             "+ seciliAyAyarla(metin : String) : boolean",
+             "+ enSonAyiSec() : void"])
 
 mai = kutu(860, 566, 680, "Main", None,
            [],
@@ -241,6 +254,7 @@ mai = kutu(860, 566, 680, "Main", None,
             "- giderEkle(servis, giris) : void   {static}",
             "- satirOku(giris) : String   {static}",
             "- metindenSayi(metin) : double   {static}",
+            "- aySec(servis, giris) : void   {static}",
             "- menuYazdir() : void   {static}"])
 
 # ------------------------------------------------------------------ oklar
@@ -280,13 +294,16 @@ svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="
        '<rect width="%d" height="%d" fill="#ffffff"/>\n%s\n</svg>'
        % (W, H, W, H, W, H, "\n".join(parcalar)))
 
-with open("uml.svg", "w", encoding="utf-8") as f:
+import os
+KLASOR = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(KLASOR, "uml.svg"), "w", encoding="utf-8") as f:
     f.write(svg)
 
 html = ('<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><style>'
         '@page{size:A3 landscape;margin:0}html,body{margin:0;padding:0}'
         'svg{display:block;width:420mm;height:297mm}</style></head><body>%s</body></html>' % svg)
-with open("uml_baski.html", "w", encoding="utf-8") as f:
+with open(os.path.join(KLASOR, "uml_baski.html"), "w", encoding="utf-8") as f:
     f.write(html)
 
 print("uml.svg ve uml_baski.html yazildi")

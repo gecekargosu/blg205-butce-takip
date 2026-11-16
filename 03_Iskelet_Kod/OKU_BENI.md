@@ -64,6 +64,7 @@ her satırı anlatabilmem gerekiyor.
 3) Islem turu analizi
 4) Yeni gelir ekle
 5) Yeni gider ekle
+6) Ozet ayini sec (MM.yyyy)
 0) Cikis
 Seciminiz: 2
 ------------------- BUTCE OZETI -------------------

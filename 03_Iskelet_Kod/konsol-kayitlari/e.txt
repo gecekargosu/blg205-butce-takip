@@ -7,6 +7,7 @@
 3) Islem turu analizi
 4) Yeni gelir ekle
 5) Yeni gider ekle
+6) Ozet ayini sec (MM.yyyy)
 0) Cikis
 Seciminiz: ------- KAYITLI ISLEMLER --------------------------------
 #1 | Gelir | 01.11.2026 | Proje geliri | +32000.00 TL | Kategori: Maas | Kaynak: Serbest
@@ -26,6 +27,7 @@ Toplam kayit: 6
 3) Islem turu analizi
 4) Yeni gelir ekle
 5) Yeni gider ekle
+6) Ozet ayini sec (MM.yyyy)
 0) Cikis
 Seciminiz: ------------------- BUTCE OZETI -------------------
 Hesap            : Cengiz Kilic 251205027
@@ -33,6 +35,8 @@ Baslangic bakiye :   +5000.00 TL
 Toplam gelir     :  +38000.00 TL
 Toplam gider     :  -16180.00 TL
 Net bakiye       :  +26820.00 TL
+Secili ay        :   11.2026
+Bu ay gider      :  -16180.00 TL
 Aylik limit      :   25000.00 TL
 Limit durumu     : Sinir asilmadi
 
@@ -44,6 +48,7 @@ Limit durumu     : Sinir asilmadi
 3) Islem turu analizi
 4) Yeni gelir ekle
 5) Yeni gider ekle
+6) Ozet ayini sec (MM.yyyy)
 0) Cikis
 Seciminiz: ---------------- ISLEM TURU ANALIZI ----------------
 Gelir kaydi       : 2
@@ -59,5 +64,6 @@ Toplam            : 6
 3) Islem turu analizi
 4) Yeni gelir ekle
 5) Yeni gider ekle
+6) Ozet ayini sec (MM.yyyy)
 0) Cikis
 Seciminiz: Program kapatiliyor.
