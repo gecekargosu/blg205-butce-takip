@@ -72,12 +72,12 @@ Yönergede yedi kalem var, her biri yaklaşık 1,5 puan. Biz dördünü seçtik.
 | Generic `Repository<T>` | Evet | Planlandı | Sınıf yok, hafta 11 | 1,5 |
 | JUnit 5, en az 10 test | Evet | Planlandı | Test yok, hafta 14 | 1,5 |
 | Git ve GitHub | Evet | **Yerel depo var, 2 commit** | Uzak depoya gönderilmedi, hoca göremez | 1,5 → risk altında |
-| Javadoc | Evet | **KISMEN** | Sınıf ve metot yorumları yazıldı ama `javadoc` çıktısı üretilmedi | 1,5 → yarım |
+| Javadoc | Evet | **TAM** | `03_Iskelet_Kod/javadoc/` üretildi, 22 sayfa, 56 metoda açıklama yazıldı | 1,5 |
 | Swing/JavaFX arayüz | Hayır | — | Kodu iki katına çıkarır | 0 |
 | Thread | Hayır | — | Anlamsız kalır | 0 |
 | Tasarım deseni | Hayır | — | Tek kişilik projede zorlama olur | 0 |
 
-**En ucuz iki puan.** Javadoc bugün 15 dakikada üretilir, Git deposu bugün gönderilirse kanıtlanır. İkisi birlikte 3 puan, kod yazmadan.
+**En ucuz iki puan.** Javadoc üretildi. Git deposu GitHub'a gönderildiğinde ikisi birlikte 3 puan, tek satır zorunlu kod yazmadan gelir.
 
 **Kalan 3 puan** hafta 11 ve 14'te geliyor. İkisi de finalden önce.
 

@@ -25,11 +25,11 @@ Cengiz, bunu bana hatırlat. Yükleme yapılmadan ek puanın 1,5 puanı sayılma
 
 | # | İş | Çıktı | Durum |
 |---|---|---|---|
-| 1 | ZIP içindeki 7 gereksiz dosyayı çıkar | temiz ZIP | Bekliyor |
-| 2 | ZIP'i yeniden paketle, adı yönergeye uysun | `Cengiz_Kilic_251205027_Yapay_Zeka_ve_Makine_Ogrenmesi.zip` | Ad düzeltildi, içerik bekliyor |
+| 1 | ZIP içindeki 7 gereksiz dosyayı çıkar | temiz ZIP | **Yapıldı** |
+| 2 | ZIP'i yeniden paketle, adı yönergeye uysun | `Cengiz_Kilic_251205027_Yapay_Zeka_ve_Makine_Ogrenmesi.zip` | **Yapıldı**, 97 dosya |
 | 3 | ZIP'i aç, 8 java dosyası var mı gör, `.class` yok mu gör | kontrol notu | Bekliyor |
 | 4 | UZEM'e yükle, yükleme ekranını görüntüle | ekran görüntüsü | Bekliyor |
-| 5 | Javadoc üret (`javadoc -d javadoc ...`) | `javadoc/` klasörü | Bekliyor |
+| 5 | Javadoc üret (`javadoc -d javadoc ...`) | `javadoc/` klasörü, 22 sayfa | **Yapıldı** |
 | 6 | Kodun son hâlini Git'e commit et | commit | Yapıldı, 3 commit var |
 
 Çıkarılacak dosyalar: `uml_plan.zip`, `uml_uret.py`, `uml_plan.py`, `takvim_uret.py`, `uml_baski.html`, `uml_plan.html`.
@@ -111,7 +111,7 @@ Ucuzdan pahalıya sıraladım, önce garantili puanları alıyoruz.
 
 | # | Kalem | Ne yapılacak | Ne zaman | Puan | Zorluk |
 |---|---|---|---|---|---|
-| E1 | Javadoc | `javadoc` komutu, `docs/` klasörü, raporda ekran görüntüsü | **Bugün** | ~1,5 | Kolay |
+| E1 | Javadoc | `javadoc` komutu, `03_Iskelet_Kod/javadoc/` klasörü, 22 sayfa | **Yapıldı** | ~1,5 | Kolay |
 | E2 | Git ve GitHub | Depo herkese açık, haftalık commit, en az 15 commit | **Bugün başla** | ~1,5 | Kolay |
 | E3 | Generic sınıf | `Repository<T>`, hem `Islem` hem `Kategori` için | 1-7 Aralık | ~1,5 | Orta |
 | E4 | JUnit 5 | En az 10 test: tutar, limit, doğrulama, dosya | 8-13 Aralık | ~1,5 | Orta |
