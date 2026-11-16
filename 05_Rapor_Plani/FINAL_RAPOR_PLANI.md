@@ -169,7 +169,7 @@ taslak ve derleme kontrolü için destek aldım, nihai kodu kendim anlayıp düz
 
 ### Kaynakça
 
-0. Proje deposu, https://github.com/gecekarogsu/blg205-butce-takip (herkese açık)
+0. Proje deposu, https://github.com/gecekargosu/blg205-butce-takip (herkese açık)
 1. BLG205 Nesne Tabanlı Programlamaya Giriş ders slaytları, hafta 1-15, İstanbul Rumeli Üniversitesi, 2026.
 2. BLG205 dönem projesi yönergesi, 2026.
 3. Oracle. *Java SE Documentation*, docs.oracle.com/javase.

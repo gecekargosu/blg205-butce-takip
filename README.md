@@ -7,7 +7,7 @@ Cengiz Kılıç, 251205027
 Konsol tabanlı, veritabanı kullanmayan, verisini metin dosyasında tutan bir bütçe takip uygulaması.
 Saf Java, harici kütüphane yok.
 
-**Depo:** https://github.com/gecekarogsu/blg205-butce-takip
+**Depo:** https://github.com/gecekargosu/blg205-butce-takip
 
 ## Durum
 
