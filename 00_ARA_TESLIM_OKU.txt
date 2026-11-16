@@ -30,6 +30,10 @@ Ek olarak:
    05_Rapor_Plani/FINAL_RAPOR_PLANI.md   final raporunun on bolumu,
                                         gereksinim eslestirme tablosu,
                                         sayfa butcesi, yapay zeka beyani
+   06_KONTROL_LISTESI.md / .pdf    yonerge uyum, kod calismasi ve ek puan
+                                   kontrol listesi, seksen madde
+   07_PROJE_BAGLANTILARI.md / .pdf hocanin tiklayip ulasacagi GitHub
+                                   baglantilari ve indirme adresleri
 
 KONTROL
 Tasarim dosyasindaki iskeletler, UML diyagrami ve java kodu ayni kaynaktan
