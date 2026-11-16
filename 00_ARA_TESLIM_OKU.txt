@@ -1,0 +1,46 @@
+ARA TESLIM PAKETI
+BLG205 Nesne Tabanli Programlamaya Giris
+Kisisel Gelir-Gider ve Butce Takip Sistemi
+Cengiz Kilic 251205027
+Teslim: 16 Kasim 2026, UZEM
+
+Yonerge uc sey istiyor. Ucu de bu klasorde.
+
+1) UML sinif diyagrami
+   02_Ara_Teslim_UML/UML_Sinif_Diyagrami.pdf     iki sayfa
+       sayfa 1: mevcut kodun sinif diyagrami, sekiz sinif
+       sayfa 2: finalde eklenecek dort sinif, plan sayfasi
+   02_Ara_Teslim_UML/UML_Sinif_Diyagrami.png     sayfa 1
+   02_Ara_Teslim_UML/UML_Final_Plani.png         sayfa 2
+   02_Ara_Teslim_UML/uml.svg                     duzenlenebilir kaynak
+
+2) Derlenebilir iskelet kod
+   03_Iskelet_Kod/src/                           sekiz java dosyasi, uc paket
+   03_Iskelet_Kod/OKU_BENI.md                    ne var ne yok, derleme komutu
+   03_Iskelet_Kod/DERLEME_VE_TEST_SONUCLARI.txt   derleme ve bes senaryo
+
+3) Kalan isler ve takvim
+   04_Kalan_Isler_ve_Takvim/Kalan_Isler_ve_Takvim.pdf    iki sayfa
+       sayfa 1: yirmi is, tarih araligi, cikti, durum
+       sayfa 2: gereksinim durumu, ek puan hedefleri, riskler
+   04_Kalan_Isler_ve_Takvim/Kalan_Isler_ve_Takvim.xlsx   uc sekme
+
+Ek olarak:
+   01_Kurgu_ve_Mimari_Tasarim.pdf   on yedi sayfalik tasarim dosyasi
+   05_Rapor_Plani/FINAL_RAPOR_PLANI.md   final raporunun on bolumu,
+                                        gereksinim eslestirme tablosu,
+                                        sayfa butcesi, yapay zeka beyani
+
+KONTROL
+Tasarim dosyasindaki iskeletler, UML diyagrami ve java kodu ayni kaynaktan
+uretim. Betikle karsilastirdim, kodda olup UML'de olmayan tek bir sinif
+veya metot yok. Kodu javac ile derledim, hata yok.
+
+HENUZ OLMAYANLAR
+Arayuz, ozel istisna, ArrayList ve HashMap, Repository<T>, dosya islemleri,
+lambda ve Stream konulari derste islenmedigi icin bu surumde yok. Takvimde
+ve UML'in ikinci sayfasinda hangi tarihte eklenecegi yaziyor.
+
+EK PUAN ICIN SECILENLER
+Generic Repository<T>, JUnit 5 ile on test, Git ve GitHub, Javadoc.
+Swing, thread ve tasarim deseni bilerek yapilmiyor.

@@ -1,0 +1,64 @@
+DERLEME VE CALISTIRMA TUTANAGI
+BLG205 - Kisisel Gelir-Gider ve Butce Takip Sistemi
+Cengiz Kilic 251205027
+Tarih: 16.11.2026
+
+1. ORTAM
+--------
+javac 25.0.1
+java 25.0.1 LTS
+Isletim sistemi: Windows
+Kaynak kodlama: UTF-8
+
+2. DERLEME
+----------
+Komut:
+    javac -encoding UTF-8 -d build src/model/*.java src/service/*.java src/app/*.java
+
+Sonuc:
+    HATA YOK. Cikis kodu 0.
+    Sekiz kaynak dosya derlendi, sinif dosyalari build klasorune yazildi.
+
+Not: -Xlint:all ile derlendiginde yalnizca "this-escape" bilgi uyarisi cikiyor.
+Bu uyari, kurucu icinde setter cagirmamdan kaynaklaniyor ve bilincli bir tercih.
+Amac, gecersiz degerin kurucudan gecmesini engellemek. Derlemeyi durdurmuyor.
+
+3. CALISTIRMA
+-------------
+Komut:
+    java -cp build app.Main
+
+Menu acildi ve secimler tek tek denendi.
+
+Test 1 - islem listeleme (secim 1)
+    Beklenen: alti kayit, tarih, tutar ve kategori bilgisiyle listelenir
+    Sonuc: GECTI. Alt alti satir geldi, tutarlar isaretli yazildi.
+
+Test 2 - butce ozeti (secim 2)
+    Beklenen: baslangic 5000, gelir 38000, gider 16180, net 26820
+    Sonuc: GECTI. Cikti tasarim dosyasindaki Ekran 3 ile birebir ayni.
+
+Test 3 - islem turu analizi (secim 3)
+    Beklenen: iki gelir, iki gider, iki sabit gider, toplam alti
+    Sonuc: GECTI. SabitGider kontrolu once yapildigi icin sabit giderler
+            ayri sayildi, gider sayisina karismadi.
+
+Test 4 - gecersiz menu secimi (secim 9)
+    Beklenen: program cokmemeli, uyari verip menuye donmeli
+    Sonuc: GECTI. "Gecersiz secim" uyarisi cikti, menu tekrar yazildi.
+
+Test 5 - cikis (secim 0)
+    Beklenen: program kapanmali
+    Sonuc: GECTI.
+
+4. HENUZ TEST EDILEMEYENLER
+---------------------------
+Gelir ve gider ekleme ekrani bu surumde olmadigi icin kullanici girdisiyle
+kayit ekleme testi yapilmadi. Istisna yonetimi konusu islendikten sonra
+eklenecek ve o zaman test edilecek.
+
+5. DOGRULAMA
+------------
+Tasarim dosyasindaki (01_Kurgu_ve_Mimari_Tasarim.pdf) sinif iskeletleriyle
+kod karsilastirildi. Sekiz sinifin adi, alanlari ve metot imzalari ayni.
+UML diyagrami da ayni kaynaktan uretildi.
