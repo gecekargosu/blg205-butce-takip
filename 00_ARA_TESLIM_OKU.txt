@@ -4,7 +4,8 @@ Kisisel Gelir-Gider ve Butce Takip Sistemi
 Cengiz Kilic 251205027
 Teslim: 16 Kasim 2026, UZEM
 
-Yonerge uc sey istiyor. Ucu de bu klasorde.
+Yonergenin 4.2 maddesi uc sey istiyor. Ucu de bu pakette.
+Asagidaki liste, yonergedeki sirayla ayni.
 
 1) UML sinif diyagrami
    02_Ara_Teslim_UML/UML_Sinif_Diyagrami.pdf     iki sayfa
@@ -16,37 +17,54 @@ Yonerge uc sey istiyor. Ucu de bu klasorde.
 
 2) Derlenebilir iskelet kod
    03_Iskelet_Kod/src/                           sekiz java dosyasi, uc paket
-   03_Iskelet_Kod/OKU_BENI.md                    ne var ne yok, derleme komutu
-   03_Iskelet_Kod/DERLEME_VE_TEST_SONUCLARI.txt   derleme ve bes senaryo
+       src/model/     Islem, Gelir, Gider, SabitGider, Kategori, ButceHesabi
+       src/service/   ButceService
+       src/app/       Main
+   03_Iskelet_Kod/OKU_BENI.md                    derleme ve calistirma komutu
+   03_Iskelet_Kod/DERLEME_VE_TEST_SONUCLARI.txt  derleme ve bes test senaryosu
 
-3) Kalan isler ve takvim
+3) Kalan isler ve is bolumu plani
    04_Kalan_Isler_ve_Takvim/Kalan_Isler_ve_Takvim.pdf    iki sayfa
        sayfa 1: yirmi is, tarih araligi, cikti, durum
        sayfa 2: gereksinim durumu, ek puan hedefleri, riskler
    04_Kalan_Isler_ve_Takvim/Kalan_Isler_ve_Takvim.xlsx   uc sekme
+   Is bolumu: asagida
 
-Ek olarak:
-   01_Kurgu_ve_Mimari_Tasarim.pdf   on yedi sayfalik tasarim dosyasi
-   05_Rapor_Plani/FINAL_RAPOR_PLANI.md   final raporunun on bolumu,
-                                        gereksinim eslestirme tablosu,
-                                        sayfa butcesi, yapay zeka beyani
-   06_KONTROL_LISTESI.md / .pdf    yonerge uyum, kod calismasi ve ek puan
-                                   kontrol listesi, seksen madde
-   07_PROJE_BAGLANTILARI.md / .pdf hocanin tiklayip ulasacagi GitHub
-                                   baglantilari ve indirme adresleri
-   08_YAPILACAKLAR.md / .pdf       otuz islik yol haritasi, ek puan plani,
-                                   GitHub yukleme hatirlatmasi
+4) Ara rapor
+   01_Kurgu_ve_Mimari_Tasarim.pdf   on yedi sayfa
+       problem tanimi, kullanim senaryolari, sinif tasarimi,
+       ekran taslaklari, kalan isler
+
+IS BOLUMU
+
+Proje bireyseldir. Yonerge grup calismasina izin veriyor ancak bu proje
+tek kisilik yurutuldu. Asagidaki tablo butun isi tek satirda gosteriyor.
+
+   Uye              Numara       Sorumluluk
+   Cengiz Kilic     251205027    Sekiz sinifin tamami, UML diyagrami,
+                                 ara rapor, takvim, testler, sunum
+
+Is dagilimi:
+   model paketi        Islem, Gelir, Gider, SabitGider, Kategori, ButceHesabi
+   service paketi      ButceService, is mantiginin tamami
+   app paketi          Main, menu ve program dongusu
+   UML                 iki sayfa, kodla birebir dogrulandi
+   Rapor               on yedi sayfalik tasarim dosyasi
+   Takvim              yirmi is, tarih ve cikti ile
 
 KONTROL
+
 Tasarim dosyasindaki iskeletler, UML diyagrami ve java kodu ayni kaynaktan
 uretim. Betikle karsilastirdim, kodda olup UML'de olmayan tek bir sinif
-veya metot yok. Kodu javac ile derledim, hata yok.
+veya metot yok. Kodu javac ile derledim, hata yok. JDK 17 ile de derlendi.
 
 HENUZ OLMAYANLAR
-Arayuz, ozel istisna, ArrayList ve HashMap, Repository<T>, dosya islemleri,
-lambda ve Stream konulari derste islenmedigi icin bu surumde yok. Takvimde
-ve UML'in ikinci sayfasinda hangi tarihte eklenecegi yaziyor.
+
+Arayuz, ozel istisna, ArrayList ve HashMap, dosya islemleri, lambda ve
+Stream konulari derste islenmedigi icin bu surumde yok. Takvimde ve UML'in
+ikinci sayfasinda hangi tarihte eklenecegi yaziyor. Bu konular eklendiginde
+sekiz zorunlu gereksinimin tamami karsilanmis olacak.
 
 EK PUAN ICIN SECILENLER
+
 Generic Repository<T>, JUnit 5 ile on test, Git ve GitHub, Javadoc.
-Swing, thread ve tasarim deseni bilerek yapilmiyor.

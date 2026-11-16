@@ -142,3 +142,46 @@ Sözlüde en çok sorulacak beş soru ve kısa cevabı.
 | Neden `ArrayList` değil dizi | Hafta 11'de işlendi, iskelet hafta 8 bilgisiyle yazıldı. Metot imzaları aynı kaldığı için geçiş tek sınıfı etkiliyor |
 | `static sayac` neden | Her kaydın numarası kendi kendine oluşsun diye. Numara tutan ikinci bir liste gerekmiyor |
 | Setter'da neden uyarı var, istisna yok | İstisna hafta 10'da geliyor. Şu an geçersiz değer eski değeri bozmuyor, program da çökmüyor |
+
+---
+
+## 9. Teslim ZIP'i denetimi (16 Kasım, teslim öncesi)
+
+Yönergenin 4.2 maddesi ara teslimde üç şey istiyor. 4.3 maddesi ise final ZIP'inin içeriğini
+sayıyor. Bu iki madde karıştırılmamalı, çünkü ara teslimde `Rapor.pdf`, `Sunum.pptx` ve `data/`
+klasörü istenmiyor.
+
+| Yönerge maddesi | İstediği | ZIP'te var mı |
+|---|---|---|
+| 4.2 | UML sınıf diyagramı | Var, `02_Ara_Teslim_UML/` içinde pdf ve png |
+| 4.2 | İskelet kod, derlenebilir ilk sürüm | Var, 8 java dosyası |
+| 4.2 | Kalan işler ve iş bölümü planı | Var, `04_Kalan_Isler_ve_Takvim/` ve `00_ARA_TESLIM_OKU.txt` içinde iş bölümü |
+| Teslim tablosu | Ara rapor | Var, `01_Kurgu_ve_Mimari_Tasarim.pdf` |
+
+ZIP dışında bırakılanlar ve gerekçesi:
+
+| Dosya | Neden dışarıda |
+|---|---|
+| `05_Rapor_Plani/` | Final raporunun iç planı, hocaya verilmez |
+| `06_KONTROL_LISTESI` | Kendi denetim listemiz, eksikleri ve riskleri yazıyor |
+| `07_PROJE_BAGLANTILARI` | Ders dışı projeler, teslimle ilgisi yok |
+| `08_YAPILACAKLAR` | İç yol haritası, GitHub hatırlatması, strateji notları |
+| `03_Iskelet_Kod/javadoc/` | Final aşamasının ek puanı, ara teslimde istenmiyor |
+| `README.md` | `00_ARA_TESLIM_OKU.txt` aynı işi görüyor, tekrar olmasın |
+
+Son hâl: 18 dosya, 1,17 MB. ZIP'in içinden çıkan kod ayrı bir klasöre açılıp `javac --release 17`
+ile derlendi, hata yok ve program aynı çıktıyı verdi (net 26.820 TL).
+
+## 10. Ek puan maddesindeki sayı
+
+Yönergede "10+1" diye bir ifade yok. Belgede yazan iki satır şöyle:
+
+- Değerlendirme tablosu, son satır: "Ek puan (bkz. Bölüm 7)" ve karşısında "+10'a kadar"
+- 7. bölümün başlığı: "Ek Puan Getiren Çalışmalar", altında yedi kalem
+
+Yani toplam puan 100, buna en fazla 10 ek puan ekleniyor. Üst sınır 110.
+Belgede küçük bir numara hatası var, 2. bölümdeki bir cümle ek puan için "bkz. Bölüm 8" diyor,
+oysa ek puan 7. bölümde. Bu bir yazım hatası, puanlamayı değiştirmiyor.
+
+Yedi kalemin hepsi yapılsa bile tavan 10 puan olduğu için, en az kalemle tavana ulaşmak yeterli.
+Biz dört kalemi hedefliyoruz, ikisi bugün tamamlandı.
