@@ -52,7 +52,10 @@ Bu oturumda sıfırdan derlenip çalıştırıldı, sonuçlar aşağıda.
 |---|---|---|
 | Derleme | `javac -encoding UTF-8 -d build $(find src -name "*.java")` | 0 hata, 8 `.class` üretildi |
 | JDK 17 uyumu | `javac --release 17 ...` | 0 hata. Yönerge "JDK 17 veya üzeri" diyor, kod 17'de de derleniyor |
-| Çalışma | `java -cp build app.Main` | Menü açıldı, dört seçenek çalıştı |
+| Çalışma | `java -cp build app.Main` | Menü açıldı, altı seçenek çalıştı (gelir, gider, liste, özet, analiz, ay seçimi) |
+| Özet ayı | seçim 2 | Varsayılan `Secili ay 11.2026`, bu ay gider −16180.00 TL, limit aşılmadı |
+| Ay değiştirme | seçim 6, `12.2026`, seçim 2 | `Secili ay 12.2026`, bu ay gider 0.00 TL (eksi sıfır yazmıyor) |
+| Geçersiz ay | seçim 6, `13.2026` | "Hata: ay MM.yyyy biciminde olmali. Eski ay korundu." mesajı, ay 11.2026 kaldı |
 | Listeleme | seçim 1 | Altı kayıt, tarih, tutar, kategori ile geldi |
 | Bütçe özeti | seçim 2 | Gelir 38000, gider 16180, net 26820. Tasarım dosyasındaki ekranla aynı |
 | Tür analizi | seçim 3 | Gelir 2, gider 2, sabit gider 2 |
