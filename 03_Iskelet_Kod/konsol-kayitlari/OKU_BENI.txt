@@ -1,7 +1,11 @@
 Bu klasordeki dosyalar programin gercek calistirma ciktilaridir.
-a.txt  acilis ekrani ve menu
-b.txt  tum islemleri listeleme
-c.txt  butce ozeti
-d.txt  islem turu analizi
-e.txt  gelir/gider ekleme ve hatali giris senaryolari (rapor bolum 6)
+Her dosya, adinda yazan senaryo icin ayri bir oturumdur.
+
+a.txt  acilis menusu ve basarili gelir ekleme (Kayit eklendi. Numara: #7)
+b.txt  hatali tutar girisi, harf yazildi (Hata: tutar sifirdan buyuk ...)
+c.txt  listede olmayan kategori girisi (Hata: boyle bir kategori yok ...)
+d.txt  basarili gider ekleme (Kayit eklendi. Numara: #7)
+e.txt  acilis, kayit listesi, butce ozeti ve islem turu analizi
+
 Dosyalar ASCII tutuldu, Turkce karakterler konsolda sade karsiliklariyla gorunur.
+Rapordaki 6. bolum ekran goruntuleri bu dosyalardan uretilmistir.

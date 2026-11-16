@@ -26,22 +26,4 @@ Aciklama       : Tutar (TL)     : Tarih          : Kategori adi   : Odeme yontem
 4) Yeni gelir ekle
 5) Yeni gider ekle
 0) Cikis
-Seciminiz: ------------------- BUTCE OZETI -------------------
-Hesap            : Cengiz Kilic 251205027
-Baslangic bakiye :   +5000.00 TL
-Toplam gelir     :  +38000.00 TL
-Toplam gider     :  -16530.00 TL
-Net bakiye       :  +26470.00 TL
-Aylik limit      :   25000.00 TL
-Limit durumu     : Sinir asilmadi
-
-=======================================================
-     KISISEL GELIR GIDER VE BUTCE TAKIP SISTEMI
-=======================================================
-1) Tum islemleri listele
-2) Butce ozeti
-3) Islem turu analizi
-4) Yeni gelir ekle
-5) Yeni gider ekle
-0) Cikis
 Seciminiz: Program kapatiliyor.
