@@ -239,6 +239,7 @@ mai = kutu(860, 566, 680, "Main", None,
             "- ornekVerileriYukle(servis) : void   {static}",
             "- gelirEkle(servis, giris) : void   {static}",
             "- giderEkle(servis, giris) : void   {static}",
+            "- satirOku(giris) : String   {static}",
             "- metindenSayi(metin) : double   {static}",
             "- menuYazdir() : void   {static}"])
 

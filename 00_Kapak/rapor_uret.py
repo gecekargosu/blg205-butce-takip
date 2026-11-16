@@ -219,7 +219,7 @@ beşinci bölümünde istenen <b>gereksinim eşleştirme tablosudur</b>.</p>
 <table>
 <tr><th style="width:40mm">Gereksinim</th><th style="width:40mm">Sınıf / Dosya</th><th>Açıklama</th><th style="width:16mm">Durum</th></tr>
 <tr><td>Sınıflar ve kapsülleme</td><td>model/*.java</td><td>Sekiz sınıfın bütün alanları private. Erişim
-getter ve setter ile. İki sınıfta static sayaç alanı, bir static metot var.</td><td>Karşılandı</td></tr>
+getter ve setter ile. İki sınıfta static sayaç alanı, üç static metot var.</td><td>Karşılandı</td></tr>
 <tr><td>Kalıtım</td><td>model/Gelir.java, Gider.java, SabitGider.java</td><td>Islem üst sınıf, Gelir ve
 Gider ondan türer, SabitGider Gider'den türer. Üç seviye hiyerarşi. super(...) ile ortak alanlar üst
 sınıftan doldurulur, toString ve tip metotları ezilir.</td><td>Karşılandı</td></tr>
@@ -308,7 +308,7 @@ katman kullanıcıdan veri okuyan menü metotları.</p>
 <tr><td>Tutar alanına harf yazılması</td><td>Main.metindenSayi</td><td>"Hata: tutar sifirdan buyuk bir sayi olmali. Kayit eklenmedi."</td></tr>
 <tr><td>Sıfır veya eksi tutar</td><td>Islem.setTutar</td><td>"Uyari: tutar sifir veya eksi olamaz, eski deger korundu."</td></tr>
 <tr><td>Listede olmayan kategori</td><td>ButceService.kategoriBul</td><td>"Hata: boyle bir kategori yok. Kayit eklenmedi."</td></tr>
-<tr><td>Boş açıklama</td><td>Islem.setAciklama</td><td>"Uyari: aciklama bos birakilamaz, eski deger korundu."</td></tr>
+<tr><td>Boş açıklama</td><td>Main.gelirEkle, Main.giderEkle ve Islem.setAciklama</td><td>"Hata: aciklama bos olamaz. Kayit eklenmedi."</td></tr>
 <tr><td>1 ile 31 dışında ödeme günü</td><td>SabitGider.setOdemeGunu</td><td>"Uyari: odeme gunu 1 ile 31 arasinda olmali, eski deger korundu."</td></tr>
 <tr><td>Menüde olmayan seçim</td><td>Main döngüsü</td><td>"Gecersiz secim. Menudeki bir numarayi girin."</td></tr>
 </table>
@@ -391,6 +391,8 @@ uyarısı veriyor. Uyarı kabul edildi, çünkü geçersiz değerin nesneye hiç
 <code>nextLine()</code> ile metin okunup <code>equals()</code> ile karşılaştırıldı.</td></tr>
 <tr><td>Türkçe karakter bozulması</td><td>Kaynak dosyalar ve konsol çıktısı ASCII tutuldu, derleme
 <code>-encoding UTF-8</code> ile yapılıyor. Bu yüzden bozulma oluşmadı.</td></tr>
+<tr><td>Girdi akışı bitince çökme</td><td>Boru hattıyla beslenen denemede <code>NoSuchElementException</code>
+alındı. Okumalar <code>satirOku()</code> metodundan geçirildi, akış bitince program uyarı verip kapanıyor.</td></tr>
 <tr><td>Ondalık sayı okuma</td><td>Kullanıcı "1500,50" yazdığında sayı olarak algılanmıyordu. Giriş
 metni önce virgülden noktaya çevriliyor, sonra desen kontrolünden geçiyor.</td></tr>
 </table>

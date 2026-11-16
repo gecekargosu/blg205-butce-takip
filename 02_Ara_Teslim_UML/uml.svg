@@ -126,7 +126,7 @@
 <text x="869" y="425" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ netBakiye() : double</text>
 <text x="869" y="440" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ tipAnalizi() : void</text>
 <text x="869" y="455" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ butceOzeti() : void</text>
-<rect x="860" y="566" width="680" height="143" fill="#ffffff" stroke="#243b2b" stroke-width="1.8"/>
+<rect x="860" y="566" width="680" height="158" fill="#ffffff" stroke="#243b2b" stroke-width="1.8"/>
 <text x="1200" y="588" font-family="Georgia,serif" font-size="13.5" font-weight="bold" fill="#16261c" text-anchor="middle">Main</text>
 <line x1="860" y1="595" x2="1540" y2="595" stroke="#243b2b" stroke-width="1.2"/>
 <line x1="860" y1="609" x2="1540" y2="609" stroke="#243b2b" stroke-width="1.2"/>
@@ -134,8 +134,9 @@
 <text x="869" y="635" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- ornekVerileriYukle(servis) : void   {static}</text>
 <text x="869" y="650" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- gelirEkle(servis, giris) : void   {static}</text>
 <text x="869" y="665" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- giderEkle(servis, giris) : void   {static}</text>
-<text x="869" y="680" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- metindenSayi(metin) : double   {static}</text>
-<text x="869" y="695" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- menuYazdir() : void   {static}</text>
+<text x="869" y="680" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- satirOku(giris) : String   {static}</text>
+<text x="869" y="695" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- metindenSayi(metin) : double   {static}</text>
+<text x="869" y="710" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- menuYazdir() : void   {static}</text>
 <polyline points="220,520 220,500 265,500 265,473" fill="none" stroke="#243b2b" stroke-width="1.7"/>
 <polygon points="265,473 271,486 259,486" fill="#ffffff" stroke="#243b2b" stroke-width="1.7"/>
 <polygon points="265,471.5 270.2,486 259.8,486" fill="#ffffff" stroke="none"/>
