@@ -185,3 +185,19 @@ oysa ek puan 7. bölümde. Bu bir yazım hatası, puanlamayı değiştirmiyor.
 
 Yedi kalemin hepsi yapılsa bile tavan 10 puan olduğu için, en az kalemle tavana ulaşmak yeterli.
 Biz dört kalemi hedefliyoruz, ikisi bugün tamamlandı.
+
+---
+
+## 11. Biçim denetimi (16 Kasım, ikinci tur)
+
+| Kural | Önce | Sonra |
+|---|---|---|
+| Gövde 11-12 punto | 9,1 punto | **11 punto** |
+| Satır aralığı 1,15 | karışık | **1,15** |
+| Sayfa altı bilgi satırı | yok | **ders adı, proje adı, ad soyad, sayfa x / y** |
+| Kapak | logolu, mühür alanı yok | **logo, tablo, mühür alanı var** |
+| Grup numarası | yok | **"Bireysel proje" yazılı** |
+| Sayfa sayısı 8-15 | 17 (sınır aşılıyordu) | **10 sayfa, 9 gövde** |
+| Hatalı giriş ekranı | yok | **2 ekran eklendi** |
+
+Rapor betiği `00_Kapak/rapor_uret.py` dosyasında. Yeniden üretmek için tek komut yeterli.

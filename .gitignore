@@ -1,18 +1,3 @@
-# derleme çıktıları
-build/
-*.class
-
-# geçici araç klasörleri
-prof/
-__pycache__/
-*.pyc
-
-# teslim paketi depoda durmasın
 *.zip
-
-# editör dosyaları
-.vscode/
-.idea/
-*.iml
-Thumbs.db
-desktop.ini
+00_Kapak/_rapor*.html
+00_Kapak/_rapor_ham.pdf

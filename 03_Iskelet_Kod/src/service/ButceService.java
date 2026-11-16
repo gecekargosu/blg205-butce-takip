@@ -66,7 +66,50 @@ public class ButceService {
         islemSayisi = islemSayisi + 1;
     }
 
+    /**
+     * Son eklenen kaydin id numarasini dondurur.
+     * Ekleme ekraninda kullaniciya "#7 numarali kayit eklendi" demek icin.
+     */
+    public int sonEklenenId() {
+        if (islemSayisi == 0) {
+            return 0;
+        }
+        return islemler[islemSayisi - 1].getId();
+    }
+
     /** tumIslemleriListele islemini yapar. */
+    /**
+     * Kayitli kategorileri numarasiyla ekrana yazar.
+     * Kullanici gelir veya gider eklerken bu listeden secim yapiyor.
+     */
+    public void kategorileriListele() {
+        System.out.println("Kategoriler: ");
+        for (int i = 0; i < kategoriSayisi; i++) {
+            System.out.println("  " + kategoriler[i]);
+        }
+    }
+
+    /**
+     * Verilen ada gore kategori arar. Buyuk kucuk harf farki gozetilmez.
+     * Bulunamazsa null doner, cagiran taraf kaydi eklemez.
+     */
+    public Kategori kategoriBul(String ad) {
+        if (ad == null) {
+            return null;
+        }
+        for (int i = 0; i < kategoriSayisi; i++) {
+            if (kategoriler[i].getAd().equalsIgnoreCase(ad.trim())) {
+                return kategoriler[i];
+            }
+        }
+        return null;
+    }
+
+    /** Kategori sayisini dondurur. */
+    public int getKategoriSayisi() {
+        return kategoriSayisi;
+    }
+
     public void tumIslemleriListele() {
         System.out.println("------- KAYITLI ISLEMLER --------------------------------");
         if (islemSayisi == 0) {

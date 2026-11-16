@@ -1,0 +1,29 @@
+
+=======================================================
+     KISISEL GELIR GIDER VE BUTCE TAKIP SISTEMI
+=======================================================
+1) Tum islemleri listele
+2) Butce ozeti
+3) Islem turu analizi
+4) Yeni gelir ekle
+5) Yeni gider ekle
+0) Cikis
+Seciminiz: ------------------ YENI GELIR ------------------
+Kategoriler: 
+  1 - Maas (GELIR)
+  2 - Burs (GELIR)
+  3 - Kira (GIDER)
+  4 - Fatura (GIDER)
+  5 - Market (GIDER)
+Aciklama       : Tutar (TL)     : Tarih          : Kategori adi   : Kaynak         : Hata: tutar sifirdan buyuk bir sayi olmali. Kayit eklenmedi.
+
+=======================================================
+     KISISEL GELIR GIDER VE BUTCE TAKIP SISTEMI
+=======================================================
+1) Tum islemleri listele
+2) Butce ozeti
+3) Islem turu analizi
+4) Yeni gelir ekle
+5) Yeni gider ekle
+0) Cikis
+Seciminiz: Program kapatiliyor.

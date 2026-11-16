@@ -163,3 +163,20 @@ Ucuzdan pahalıya sıraladım, önce garantili puanları alıyoruz.
 | `06_KONTROL_LISTESI.md` | Yönerge uyumu ve eksikler |
 | `07_PROJE_BAGLANTILARI.md` | GitHub bağlantıları |
 | `08_YAPILACAKLAR.md` | Bu dosya |
+
+---
+
+## 11. 16 Kasım, ikinci tur — yapılanlar
+
+| İş | Durum |
+|---|---|
+| Konsol arayüzü: menüye "4) Yeni gelir ekle" ve "5) Yeni gider ekle" eklendi | Yapıldı |
+| Sayı okuma doğrulaması, virgül ve nokta desteği | Yapıldı |
+| Hatalı giriş ekranları (tutar harf, olmayan kategori) | Yapıldı, rapora girdi |
+| Kapak sayfası, üniversite logosu, mühür alanı | Yapıldı |
+| Rapor 11 punto, 1,15 satır aralığı, sayfa altı bilgi satırı | Yapıldı |
+| Ara rapor PDF, 10 sayfa, 9 gövde sayfası | Yapıldı |
+| Yapay zekâ beyanının genişletilmesi (sayfa düzeni, kapak, PDF) | Yapıldı |
+| GitHub deposu | Bu turda yüklenecek |
+
+Kalan: final raporun Aralık'ta yeniden üretilmesi, UML'in yeni sınıflarla güncellenmesi.

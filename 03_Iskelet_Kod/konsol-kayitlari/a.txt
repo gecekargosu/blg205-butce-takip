@@ -1,0 +1,49 @@
+
+=======================================================
+     KISISEL GELIR GIDER VE BUTCE TAKIP SISTEMI
+=======================================================
+1) Tum islemleri listele
+2) Butce ozeti
+3) Islem turu analizi
+4) Yeni gelir ekle
+5) Yeni gider ekle
+0) Cikis
+Seciminiz: ------------------ YENI GELIR ------------------
+Kategoriler: 
+  1 - Maas (GELIR)
+  2 - Burs (GELIR)
+  3 - Kira (GIDER)
+  4 - Fatura (GIDER)
+  5 - Market (GIDER)
+Aciklama       : Tutar (TL)     : Tarih          : Kategori adi   : Kaynak         : Kayit eklendi. Numara: #7
+
+=======================================================
+     KISISEL GELIR GIDER VE BUTCE TAKIP SISTEMI
+=======================================================
+1) Tum islemleri listele
+2) Butce ozeti
+3) Islem turu analizi
+4) Yeni gelir ekle
+5) Yeni gider ekle
+0) Cikis
+Seciminiz: ------- KAYITLI ISLEMLER --------------------------------
+#1 | Gelir | 01.11.2026 | Proje geliri | +32000.00 TL | Kategori: Maas | Kaynak: Serbest
+#2 | Gelir | 05.11.2026 | Burs | +6000.00 TL | Kategori: Burs | Kaynak: Burs
+#3 | Sabit Gider | 05.11.2026 | Ev kirasi | -12500.00 TL | Kategori: Kira | Odeme: Havale | Her ayin 5. gunu
+#4 | Sabit Gider | 10.11.2026 | Internet faturasi | -650.00 TL | Kategori: Fatura | Odeme: Otomatik odeme | Her ayin 10. gunu
+#5 | Gider | 12.11.2026 | Market alisverisi | -2450.00 TL | Kategori: Market | Odeme: Kredi karti
+#6 | Gider | 14.11.2026 | Java kitabi | -580.00 TL | Kategori: Market | Odeme: Nakit
+#7 | Gelir | 15.11.2026 | Kitap telifi | +1500.50 TL | Kategori: Maas | Kaynak: Telif
+--------------------------------------------------------
+Toplam kayit: 7
+
+=======================================================
+     KISISEL GELIR GIDER VE BUTCE TAKIP SISTEMI
+=======================================================
+1) Tum islemleri listele
+2) Butce ozeti
+3) Islem turu analizi
+4) Yeni gelir ekle
+5) Yeni gider ekle
+0) Cikis
+Seciminiz: Program kapatiliyor.

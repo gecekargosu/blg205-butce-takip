@@ -35,6 +35,10 @@ public class Main {
                 servis.butceOzeti();
             } else if (secim.equals("3")) {
                 servis.tipAnalizi();
+            } else if (secim.equals("4")) {
+                gelirEkle(servis, giris);
+            } else if (secim.equals("5")) {
+                giderEkle(servis, giris);
             } else if (secim.equals("0")) {
                 System.out.println("Program kapatiliyor.");
                 calisiyor = false;
@@ -72,6 +76,93 @@ public class Main {
         servis.islemEkle(new Gider("Java kitabi", 580.0, "14.11.2026", market, "Nakit", false));
     }
 
+    /**
+     * Kullanicidan gelir bilgilerini alip listeye ekler.
+     * Gecersiz tutar veya olmayan kategori girilirse kayit eklenmez,
+     * program cokmez, menuye geri doner.
+     */
+    private static void gelirEkle(ButceService servis, Scanner giris) {
+        System.out.println("------------------ YENI GELIR ------------------");
+        servis.kategorileriListele();
+        System.out.print("Aciklama       : ");
+        String aciklama = giris.nextLine().trim();
+        System.out.print("Tutar (TL)     : ");
+        double tutar = metindenSayi(giris.nextLine());
+        System.out.print("Tarih          : ");
+        String tarih = giris.nextLine().trim();
+        System.out.print("Kategori adi   : ");
+        Kategori kategori = servis.kategoriBul(giris.nextLine());
+        System.out.print("Kaynak         : ");
+        String kaynak = giris.nextLine().trim();
+
+        if (tutar <= 0) {
+            System.out.println("Hata: tutar sifirdan buyuk bir sayi olmali. Kayit eklenmedi.");
+            return;
+        }
+        if (kategori == null) {
+            System.out.println("Hata: boyle bir kategori yok. Kayit eklenmedi.");
+            return;
+        }
+        if (aciklama.equals("")) {
+            System.out.println("Hata: aciklama bos olamaz. Kayit eklenmedi.");
+            return;
+        }
+
+        servis.islemEkle(new Gelir(aciklama, tutar, tarih, kategori, kaynak));
+        System.out.println("Kayit eklendi. Numara: #" + servis.sonEklenenId());
+    }
+
+    /**
+     * Kullanicidan gider bilgilerini alip listeye ekler.
+     * Gelir eklemeyle ayni dogrulama kurallarini kullanir.
+     */
+    private static void giderEkle(ButceService servis, Scanner giris) {
+        System.out.println("------------------ YENI GIDER ------------------");
+        servis.kategorileriListele();
+        System.out.print("Aciklama       : ");
+        String aciklama = giris.nextLine().trim();
+        System.out.print("Tutar (TL)     : ");
+        double tutar = metindenSayi(giris.nextLine());
+        System.out.print("Tarih          : ");
+        String tarih = giris.nextLine().trim();
+        System.out.print("Kategori adi   : ");
+        Kategori kategori = servis.kategoriBul(giris.nextLine());
+        System.out.print("Odeme yontemi  : ");
+        String odeme = giris.nextLine().trim();
+
+        if (tutar <= 0) {
+            System.out.println("Hata: tutar sifirdan buyuk bir sayi olmali. Kayit eklenmedi.");
+            return;
+        }
+        if (kategori == null) {
+            System.out.println("Hata: boyle bir kategori yok. Kayit eklenmedi.");
+            return;
+        }
+        if (aciklama.equals("")) {
+            System.out.println("Hata: aciklama bos olamaz. Kayit eklenmedi.");
+            return;
+        }
+
+        servis.islemEkle(new Gider(aciklama, tutar, tarih, kategori, odeme, false));
+        System.out.println("Kayit eklendi. Numara: #" + servis.sonEklenenId());
+    }
+
+    /**
+     * Kullanicinin yazdigi metni sayiya cevirir.
+     * Hem nokta hem virgul ondalik ayirici olarak kabul edilir.
+     * Metin sayi degilse -1 doner, boylece cagiran taraf kaydi eklemez.
+     */
+    private static double metindenSayi(String metin) {
+        if (metin == null) {
+            return -1;
+        }
+        String temiz = metin.trim().replace(",", ".");
+        if (!temiz.matches("[0-9]+(\\.[0-9]{1,2})?")) {
+            return -1;
+        }
+        return Double.parseDouble(temiz);
+    }
+
     private static void menuYazdir() {
         System.out.println("");
         System.out.println("=======================================================");
@@ -80,6 +171,8 @@ public class Main {
         System.out.println("1) Tum islemleri listele");
         System.out.println("2) Butce ozeti");
         System.out.println("3) Islem turu analizi");
+        System.out.println("4) Yeni gelir ekle");
+        System.out.println("5) Yeni gider ekle");
         System.out.println("0) Cikis");
         System.out.print("Seciminiz: ");
     }
