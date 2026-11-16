@@ -18,6 +18,8 @@ Komut:
 Sonuc:
     HATA YOK. Cikis kodu 0.
     Sekiz kaynak dosya derlendi, sinif dosyalari build klasorune yazildi.
+    Derleme ciktisi (build klasoru ve .class dosyalari) depoya ve ZIP'e eklenmedi,
+    kaynak koddan yeniden uretilebilir.
 
 Not: -Xlint:all ile derlendiginde yalnizca "this-escape" bilgi uyarisi cikiyor.
 Bu uyari, kurucu icinde setter cagirmamdan kaynaklaniyor ve bilincli bir tercih.
