@@ -104,7 +104,6 @@ public abstract class Islem {
      * genisletiyor, yani ortak kismi bir kere burada yaziyorum.
      */
     @Override
-    /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
     public String toString() {
         String kategoriAdi = "yok";
         if (kategori != null) {

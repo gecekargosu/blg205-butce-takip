@@ -31,14 +31,14 @@ public class SabitGider extends Gider {
     }
 
     // Ust siniftaki etiketi degistiriyor, ekranda "Sabit Gider" yazacak.
-    @Override
     /** tip sonucunu hesaplayip dondurur. */
+    @Override
     public String tip() {
         return "Sabit Gider";
     }
 
-    @Override
     /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
+    @Override
     public String toString() {
         return super.toString() + " | Her ayin " + odemeGunu + ". gunu";
     }

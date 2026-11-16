@@ -1,0 +1,7 @@
+Bu klasordeki dosyalar programin gercek calistirma ciktilaridir.
+a.txt  acilis ekrani ve menu
+b.txt  tum islemleri listeleme
+c.txt  butce ozeti
+d.txt  islem turu analizi
+e.txt  gelir/gider ekleme ve hatali giris senaryolari (rapor bolum 6)
+Dosyalar ASCII tutuldu, Turkce karakterler konsolda sade karsiliklariyla gorunur.

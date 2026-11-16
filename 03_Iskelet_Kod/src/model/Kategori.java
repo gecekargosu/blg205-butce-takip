@@ -51,8 +51,8 @@ public class Kategori {
         return sayac;
     }
 
-    @Override
     /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
+    @Override
     public String toString() {
         return id + " - " + ad + " (" + tip + ")";
     }

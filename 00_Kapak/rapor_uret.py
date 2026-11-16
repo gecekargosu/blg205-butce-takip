@@ -31,7 +31,7 @@ CSS = """
 body { font-family: 'Calibri', 'Segoe UI', Arial, sans-serif; font-size: 11pt;
        line-height: 1.15; color: #111; margin: 0; }
 h1 { font-size: 15pt; margin: 0 0 8pt 0; padding-bottom: 4pt; border-bottom: 1.5pt solid #8b1a1a; }
-h2 { font-size: 12.5pt; margin: 14pt 0 5pt 0; color: #8b1a1a; }
+h2 { font-size: 12.5pt; margin: 14pt 0 5pt 0; color: #8b1a1a; page-break-after: avoid; }
 h3 { font-size: 11pt; margin: 10pt 0 4pt 0; }
 p { margin: 0 0 6pt 0; text-align: justify; }
 ul, ol { margin: 0 0 6pt 0; padding-left: 16pt; }
@@ -47,6 +47,7 @@ pre .y { color: #7ec699; }
 .ekran { border: 0.75pt solid #bbb; background: #fafafa; padding: 6pt 8pt; margin: 4pt 0 10pt 0;
          font-family: Consolas, monospace; font-size: 8.2pt; line-height: 1.28; white-space: pre-wrap;
          page-break-inside: avoid; }
+.girdi { font-size: 8.8pt; font-weight: normal; color: #555; font-family: Consolas, monospace; }
 .altbilgi-not { font-size: 9pt; color: #555; font-style: italic; margin-top: -4pt; margin-bottom: 10pt; }
 .sayfa { page-break-after: always; }
 .kapak { text-align: center; height: 245mm; position: relative; }
@@ -68,6 +69,27 @@ pre .y { color: #7ec699; }
 """
 
 
+def konsol_blok(ad, bas, son):
+    """Konsol kaydindan isaretlere gore blok cikarir, HTML icin kacislar."""
+    satirlar = (KAYIT / ad).read_text(encoding="utf-8", errors="replace").splitlines()
+    i = None
+    for k, satir in enumerate(satirlar):
+        if bas in satir:
+            i = k
+            break
+    if i is None:
+        raise SystemExit("blok baslangici yok: %s / %s" % (ad, bas))
+    j = i
+    while j > 0 and not satirlar[j].startswith("Seciminiz:"):
+        j -= 1
+    k = len(satirlar) - 1
+    for m in range(i, len(satirlar)):
+        if son in satirlar[m]:
+            k = m
+            break
+    return html.escape("\n".join(satirlar[j:k + 1]).strip())
+
+
 def kapak():
     return f"""
 <div class="kapak">
@@ -84,6 +106,7 @@ def kapak():
     <tr><td class="b">Bölümü</td><td class="i">:</td><td>Yapay Zekâ ve Makine Öğrenmesi</td></tr>
     <tr><td class="b">Ders</td><td class="i">:</td><td>BLG205 Nesne Tabanlı Programlamaya Giriş</td></tr>
     <tr><td class="b">Öğretim Üyesi</td><td class="i">:</td><td>Doç. Dr. Aykut Diker</td></tr>
+    <tr><td class="b">Grup No</td><td class="i">:</td><td>— (bireysel proje)</td></tr>
     <tr><td class="b">Proje Türü</td><td class="i">:</td><td>Bireysel proje</td></tr>
     <tr><td class="b">Teslim Tarihi</td><td class="i">:</td><td>16.11.2026</td></tr>
   </table>
@@ -94,14 +117,14 @@ def kapak():
 
 
 def govde():
-    e_menu = konsol("e.txt", 0, 10)
-    e_liste = konsol("e.txt", 10, 20)
-    e_ozet = konsol("e.txt", 43, 55)
-    e_analiz = konsol("e.txt", 74, 82)
-    a_ekle = konsol("a.txt", 52, 66)
-    b_hata = konsol("b.txt", 8, 17)
-    c_hata = konsol("c.txt", 8, 15)
-    d_ekle = konsol("d.txt", 52, 66)
+    e_menu = konsol_blok("e.txt", "1) Tum islemleri listele", "0) Cikis")
+    e_liste = konsol_blok("e.txt", "------- KAYITLI ISLEMLER", "Toplam kayit:")
+    e_ozet = konsol_blok("e.txt", "BUTCE OZETI", "Limit durumu")
+    e_analiz = konsol_blok("e.txt", "ISLEM TURU ANALIZI", "Toplam")
+    a_ekle = konsol_blok("a.txt", "YENI GELIR", "Kayit eklendi")
+    d_ekle = konsol_blok("d.txt", "YENI GIDER", "Kayit eklendi")
+    b_hata = konsol_blok("b.txt", "YENI GELIR", "Hata: tutar")
+    c_hata = konsol_blok("c.txt", "YENI GIDER", "Hata: boyle bir kategori")
 
     return f"""
 <h1>1. Problem Tanımı ve Kullanım Senaryoları</h1>
@@ -130,7 +153,7 @@ açılırken belleğe yüklenmektedir.</p>
 <h2>1.2 Temel işlevler</h2>
 <p>Program yedi temel işlevi yerine getirir. Gelir kaydı ekleme, gider kaydı ekleme, kayıtları
 listeleme, bütçe özeti çıkarma, işlem türüne göre sayım, aylık limit kontrolü ve kayıtların kalıcı
-olarak saklanması. Bu yedi işlevden ilk beşi ara teslimde çalışır durumdadır. Limit kontrolü bütçe
+olarak saklanması. Bu yedi işlevden ilk altısı ara teslimde çalışır durumdadır. Limit kontrolü bütçe
 özetinin içinde yapılır. Kalıcı saklama hafta 13 konusu olduğu için sonraki sürümde eklenecektir.</p>
 
 <h2>1.3 Kapsam ve sınırlar</h2>
@@ -190,8 +213,9 @@ kontrolü.</td></tr>
 
 <h1>3. NYP İlkelerinin Uygulanması</h1>
 <p>Aşağıdaki tablo, yönergenin üçüncü bölümündeki sekiz gereksinimi kodda hangi sınıfın karşıladığıyla
-birlikte gösterir. Ara teslimde sekiz gereksinimden dördü karşılanmış durumdadır. Kalan dördü, derste
-ilgili konu işlendikten sonra eklenecektir.</p>
+birlikte gösterir. Ara teslimde sekiz gereksinimden üçü karşılanmış, biri kısmen karşılanmış
+durumdadır. Kalan dördü, derste ilgili konu işlendikten sonra eklenecektir. Bu tablo, yönergenin
+beşinci bölümünde istenen <b>gereksinim eşleştirme tablosudur</b>.</p>
 <table>
 <tr><th style="width:40mm">Gereksinim</th><th style="width:40mm">Sınıf / Dosya</th><th>Açıklama</th><th style="width:16mm">Durum</th></tr>
 <tr><td>Sınıflar ve kapsülleme</td><td>model/*.java</td><td>Sekiz sınıfın bütün alanları private. Erişim
@@ -321,7 +345,7 @@ GIDER;5;2450.00;12.11.2026;Market;Market alisverisi;Kredi karti</pre>
 <tr><td>7</td><td>Türe özgü alan</td><td>Gelirde kaynak, giderde ödeme yöntemi, sabit giderde ayrıca
 ödeme günü.</td></tr>
 </table>
-<p>Okuma sırasında satır iki nokta üst üste ile ayrılıp tür alanına bakılacak. Tür GELIR ise Gelir
+<p>Okuma sırasında satır noktalı virgülle ayrılıp tür alanına bakılacak. Tür GELIR ise Gelir
 nesnesi, SABIT ise SabitGider nesnesi üretilecek. Böylece çok biçimlilik yalnızca bellekte değil,
 dosyadan geri yüklemede de kullanılmış olacak.</p>
 
@@ -341,16 +365,16 @@ normal akışı, son iki görüntü hatalı giriş senaryolarını gösterir.</p
 <h2>6.4 Tür analizi</h2>
 <div class="ekran">{e_analiz}</div>
 
-<h2>6.5 Gelir ekleme</h2>
+<h2>6.5 Gelir ekleme <span class="girdi">girdi: Kitap telifi / 1500,50 / 15.11.2026 / Maas / Telif</span></h2>
 <div class="ekran">{a_ekle}</div>
 
-<h2>6.6 Gider ekleme</h2>
+<h2>6.6 Gider ekleme <span class="girdi">girdi: Kirtasiye / 350 / 13.11.2026 / Market / Nakit</span></h2>
 <div class="ekran">{d_ekle}</div>
 
-<h2>6.7 Hatalı giriş, tutar sayı değil</h2>
+<h2>6.7 Hatalı giriş, tutar sayı değil <span class="girdi">girdi: tutar abc</span></h2>
 <div class="ekran">{b_hata}</div>
 
-<h2>6.8 Hatalı giriş, olmayan kategori</h2>
+<h2>6.8 Hatalı giriş, olmayan kategori <span class="girdi">girdi: kategori Yok</span></h2>
 <div class="ekran">{c_hata}</div>
 <p>Her iki hatada da program kapanmıyor, kayıt eklemiyor ve menüye geri dönüyor.</p>
 
@@ -365,13 +389,13 @@ sabit giderler de gider sayılıyordu. En alt sınıf önce kontrol edilecek şe
 uyarısı veriyor. Uyarı kabul edildi, çünkü geçersiz değerin nesneye hiç girmemesi daha önemli.</td></tr>
 <tr><td>Menüde harf girilmesi</td><td><code>nextInt()</code> doğrudan istisna fırlatıyordu.
 <code>nextLine()</code> ile metin okunup <code>equals()</code> ile karşılaştırıldı.</td></tr>
-<tr><td>Türkçe karakter bozulması</td><td>Derleme <code>-encoding UTF-8</code> ile yapılıyor. Konsol
-çıktısı bu ayarla doğru görünüyor.</td></tr>
+<tr><td>Türkçe karakter bozulması</td><td>Kaynak dosyalar ve konsol çıktısı ASCII tutuldu, derleme
+<code>-encoding UTF-8</code> ile yapılıyor. Bu yüzden bozulma oluşmadı.</td></tr>
 <tr><td>Ondalık sayı okuma</td><td>Kullanıcı "1500,50" yazdığında sayı olarak algılanmıyordu. Giriş
 metni önce virgülden noktaya çevriliyor, sonra desen kontrolünden geçiyor.</td></tr>
 </table>
 
-<h1>8. İş Bölümü</h1>
+<h1>8. Grup İçi İş Bölümü</h1>
 <p>Proje bireyseldir, yönergenin izin verdiği ölçüde tek kişi tarafından yürütülmüştür. Aşağıdaki tablo
 hangi sınıfın kim tarafından yazıldığını gösterir.</p>
 <table>
@@ -426,7 +450,7 @@ sadeliği bana aittir. Sunumda sorulan sorulara kendi kodum üzerinden cevap ver
 <li>Oracle. <i>Java Language Specification</i>, bölüm 8 (sınıflar) ve bölüm 11 (istisnalar).</li>
 <li>Gamma, E. ve ark. <i>Design Patterns</i>, Addison-Wesley, 1994. Yalnızca kavram için başvuruldu,
 kodda tasarım deseni kullanılmadı.</li>
-<li>Proje deposu, github.com/gecekargosu/blg205-butce-takip (final tesliminden önce yayınlanacak).</li>
+<li>Proje deposu, github.com/gecekargosu/blg205-butce-takip (herkese açık, ara teslimde sekiz işlem gönderildi).</li>
 </ol>
 """
 

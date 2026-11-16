@@ -71,13 +71,13 @@ Yönergede yedi kalem var, her biri yaklaşık 1,5 puan. Biz dördünü seçtik.
 |---|---|---|---|---|
 | Generic `Repository<T>` | Evet | Planlandı | Sınıf yok, hafta 11 | 1,5 |
 | JUnit 5, en az 10 test | Evet | Planlandı | Test yok, hafta 14 | 1,5 |
-| Git ve GitHub | Evet | **Yerel depo var, 2 commit** | Uzak depoya gönderilmedi, hoca göremez | 1,5 → risk altında |
+| Git ve GitHub | Evet | **TAM** | Depo public, 8 commit: github.com/gecekargosu/blg205-butce-takip | 1,5 |
 | Javadoc | Evet | **TAM** | `03_Iskelet_Kod/javadoc/` üretildi, 22 sayfa, 56 metoda açıklama yazıldı | 1,5 |
 | Swing/JavaFX arayüz | Hayır | — | Kodu iki katına çıkarır | 0 |
 | Thread | Hayır | — | Anlamsız kalır | 0 |
 | Tasarım deseni | Hayır | — | Tek kişilik projede zorlama olur | 0 |
 
-**En ucuz iki puan.** Javadoc üretildi. Git deposu GitHub'a gönderildiğinde ikisi birlikte 3 puan, tek satır zorunlu kod yazmadan gelir.
+**En ucuz iki puan.** Javadoc üretildi ve Git deposu GitHub'a gönderildi, ikisi birlikte 3 puan, tek satır zorunlu kod yazmadan geldi.
 
 **Kalan 3 puan** hafta 11 ve 14'te geliyor. İkisi de finalden önce.
 
@@ -113,7 +113,7 @@ Tutarlar `double` tutuluyor. `paraYaz` metodu kuruşa yuvarlıyor, ekranda sorun
 |---|---|---|
 | Beş zorunlu gereksinimin finalde yetişmemesi | Kod puanı 60'tan 25'e düşer | Hafta 10–15 takvimi `04_Kalan_Isler_ve_Takvim` içinde, her hafta tek konu |
 | ArrayList'e geçiş hafta 11, vize haftasına denk geliyor | Gecikme zinciri başlatır | Geçiş metot imzalarını değiştirmiyor, `ButceService` içi kapalı |
-| Git deposu gönderilmedi | 1,5 puan kanıtsız kalır | Bugün gönderilecek |
+| Git deposu gönderildi (16 Kasım, 8 commit) | Risk kapandı | Her hafta en az bir commit ile geçmiş canlı tutulacak |
 | ZIP adında bölüm adı yok | Hoca dosyayı eşleştiremeyebilir | Bugün yeniden adlandırılacak |
 | Sunumda "neden dizi kullandın" sorusu | Savunma zayıf görünür | Cevap hazır: hafta 8'de ArrayList işlenmedi, dizi bilinçli ve geçici |
 | `instanceof` ile tür analizi | Hoca "kalıtım varken neden" diye sorabilir | Cevap: sayım için gerçek alt tip gerekiyor, `tip()` etiket için kullanılıyor |
@@ -124,7 +124,7 @@ Tutarlar `double` tutuluyor. `paraYaz` metodu kuruşa yuvarlıyor, ekranda sorun
 
 1. ZIP'i yönerge formatında yeniden adlandır: `Cengiz_Kilic_251205027_Yapay_Zeka_ve_Makine_Ogrenmesi.zip`
 2. ZIP içeriğini aç ve kontrol et: `src` altında 8 `.java`, `.class` yok, PDF'ler açılıyor
-3. Git deposunu uzak sunucuya gönder (ek puan kanıtı)
+3. Git deposunu uzak sunucuya gönder (16 Kasım'da yapıldı)
 4. `javadoc -d javadoc src/model/*.java src/service/*.java src/app/*.java` çalıştır ve çıktıyı paketle
 5. UZEM'e yükle, yükleme ekran görüntüsünü sakla
 6. 17.00'den önce yüklendiğini teyit et, geç teslim her gün 10 puan

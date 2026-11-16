@@ -68,6 +68,7 @@ html = """<!DOCTYPE html>
 @page { size: A4; margin: 15mm 13mm 13mm 13mm; }
 body { font-family: "Segoe UI", Calibri, Arial, sans-serif; font-size: 9.6pt; color: #1a1a1a; line-height: 1.4; }
 h1 { font-size: 16pt; margin: 0 0 2mm 0; color: #17301f; }
+.blok { page-break-inside: avoid; }
 h2 { font-size: 11.5pt; margin: 5mm 0 2mm 0; color: #2c5d3f; border-bottom: 1px solid #2c5d3f; padding-bottom: 1mm; }
 .alt { font-size: 8.8pt; color: #555; margin: 0 0 3mm 0; }
 table { width: 100%%; border-collapse: collapse; font-size: 8.5pt; margin-bottom: 3mm; }
@@ -112,8 +113,18 @@ dördüncüsü sürüyor. Kalanlar derste ilgili konu işlendikten sonraki hafta
 <tr><td>Dosya bozulması</td><td>Her hafta sonu proje klasörünün kopyasını ayrı bir yere alacağım, ayrıca Git geçmişi var</td></tr>
 </table>
 
+<div class="blok">
+<h2>5. İş bölümü</h2>
+<p class="alt">Proje bireyseldir. Yönerge grup çalışmasına izin veriyor ancak bu proje tek kişi
+yürütüldü. Aşağıdaki tablo bütün işi tek satırda gösteriyor.</p>
+<table>
+<tr><th style="width:45mm">Üye</th><th style="width:25mm">Numara</th><th>Üstlendiği işler</th></tr>
+<tr><td>Cengiz Kılıç</td><td>251205027</td><td>Sekiz sınıfın yazımı, UML diyagramı, ara rapor, bu takvim, derleme ve testler, sunum ve video</td></tr>
+</table>
+
 <div class="not"><b>Ölçü.</b> Bu takvimde bir iş ancak kodu derlenip çalıştığında tamamlandı sayılıyor.
 Kâğıt üzerinde kalan iş, teslim edilmiş iş değil.</div>
+</div>
 </div>
 
 </body></html>

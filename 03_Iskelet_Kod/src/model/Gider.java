@@ -46,19 +46,18 @@ public class Gider extends Islem {
      * Gelir sinifinda ayni metot arti donuyor.
      */
     @Override
-    /** butceEtkisi sonucunu hesaplayip dondurur. */
     public double butceEtkisi() {
         return -getTutar();
     }
 
-    @Override
     /** tip sonucunu hesaplayip dondurur. */
+    @Override
     public String tip() {
         return "Gider";
     }
 
-    @Override
     /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
+    @Override
     public String toString() {
         return super.toString() + " | Odeme: " + odemeYontemi;
     }

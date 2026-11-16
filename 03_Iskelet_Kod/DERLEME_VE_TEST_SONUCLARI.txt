@@ -51,14 +51,36 @@ Test 5 - cikis (secim 0)
     Beklenen: program kapanmali
     Sonuc: GECTI.
 
+Test 6 - gelir ekleme (secim 4)
+    Girdi: Kitap telifi / 1500,50 / 15.11.2026 / Maas / Telif
+    Beklenen: kayit eklenir, numarasi bildirilir
+    Sonuc: GECTI. "#7" numarali kayit eklendi, listede +1500.50 TL gorundu.
+
+Test 7 - gider ekleme (secim 5)
+    Girdi: Kirtasiye / 350 / 13.11.2026 / Market / Nakit
+    Beklenen: kayit eklenir, butce ozeti yeni gideri yansitir
+    Sonuc: GECTI. Gider toplami 16530.00 TL, net bakiye 26470.00 TL oldu.
+
+Test 8 - tutar sayi degil (secim 4, tutar "abc")
+    Beklenen: kayit eklenmez, hata mesaji cikar, program cokmez
+    Sonuc: GECTI. "Hata: tutar sifirdan buyuk bir sayi olmali. Kayit eklenmedi."
+
+Test 9 - olmayan kategori (secim 5, kategori "Yok")
+    Beklenen: kayit eklenmez, hata mesaji cikar
+    Sonuc: GECTI. "Hata: boyle bir kategori yok. Kayit eklenmedi."
+
+Test 10 - girdi akisi bitti (boru hatti ile beslenirken satir kalmadi)
+    Beklenen: program istisna firlatip cokmemeli
+    Sonuc: GECTI. "Giris akisi bitti, program kapatiliyor." yazip temiz kapandi.
+    Not: Ilk denemede NoSuchElementException alinmisti, satirOku metodu eklendi.
+
 4. HENUZ TEST EDILEMEYENLER
 ---------------------------
-Gelir ve gider ekleme ekrani bu surumde olmadigi icin kullanici girdisiyle
-kayit ekleme testi yapilmadi. Istisna yonetimi konusu islendikten sonra
-eklenecek ve o zaman test edilecek.
+Dosyaya yazma ve geri yukleme hafta 13 konusu oldugu icin bu surumde yok,
+o zaman test edilecek.
 
 5. DOGRULAMA
 ------------
-Tasarim dosyasindaki (01_Kurgu_ve_Mimari_Tasarim.pdf) sinif iskeletleriyle
-kod karsilastirildi. Sekiz sinifin adi, alanlari ve metot imzalari ayni.
+Ara rapordaki (01_Ara_Rapor.pdf) sinif tablosu ve UML diyagramiyla kod
+karsilastirildi. Sekiz sinifin adi, alanlari ve metot imzalari ayni.
 UML diyagrami da ayni kaynaktan uretildi.

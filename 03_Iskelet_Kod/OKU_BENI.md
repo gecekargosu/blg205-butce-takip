@@ -32,6 +32,8 @@ src/app/Main.java           menü, örnek veriler, program döngüsü
 - Menü açılıyor ve kapanana kadar dönüyor.
 - Altı örnek kayıt açılışta yükleniyor.
 - İşlemleri listeleme, bütçe özeti ve işlem türü analizi çalışıyor.
+- Yeni gelir ve yeni gider ekleme ekranları çalışıyor (menü 4 ve 5), hatalı girişte
+  kayıt eklenmiyor ve menüye dönülüyor.
 - Kalıtım zinciri kurulu, `butceEtkisi()` ve `tip()` alt sınıflarda ezilmiş durumda.
 - `Islem[]` dizisi üzerinden gelir, gider ve sabit gider birlikte tutuluyor,
   yani çok biçimlilik gerçekten kullanılıyor.
@@ -47,7 +49,6 @@ src/app/Main.java           menü, örnek veriler, program döngüsü
 | ArrayList, HashMap | Hafta 11 konusu | 1-7 Aralık |
 | Dosya işlemleri | Hafta 13 konusu | 1-7 Aralık |
 | Lambda, Stream | Hafta 15 konusu | 8-14 Aralık |
-| Gelir ve gider ekleme ekranı | Kullanıcıdan sayı okumak istisna yönetimi gerektiriyor | 17-30 Kasım |
 
 Bu konular derste işlendikten sonra eklenecek. Sıra bu şekilde çünkü sunumda
 her satırı anlatabilmem gerekiyor.
@@ -61,6 +62,8 @@ her satırı anlatabilmem gerekiyor.
 1) Tum islemleri listele
 2) Butce ozeti
 3) Islem turu analizi
+4) Yeni gelir ekle
+5) Yeni gider ekle
 0) Cikis
 Seciminiz: 2
 ------------------- BUTCE OZETI -------------------

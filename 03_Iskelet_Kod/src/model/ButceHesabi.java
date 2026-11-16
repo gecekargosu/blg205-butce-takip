@@ -57,8 +57,8 @@ public class ButceHesabi {
         return false;
     }
 
-    @Override
     /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
+    @Override
     public String toString() {
         return sahip + " " + ogrenciNo;
     }

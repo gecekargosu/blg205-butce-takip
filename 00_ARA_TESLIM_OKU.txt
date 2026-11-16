@@ -24,16 +24,21 @@ Asagidaki liste, yonergedeki sirayla ayni.
    03_Iskelet_Kod/DERLEME_VE_TEST_SONUCLARI.txt  derleme ve bes test senaryosu
 
 3) Kalan isler ve is bolumu plani
-   04_Kalan_Isler_ve_Takvim/Kalan_Isler_ve_Takvim.pdf    iki sayfa
+   04_Kalan_Isler_ve_Takvim/Kalan_Isler_ve_Takvim.pdf    uc sayfa
        sayfa 1: yirmi is, tarih araligi, cikti, durum
        sayfa 2: gereksinim durumu, ek puan hedefleri, riskler
+       sayfa 3: is bolumu tablosu
    04_Kalan_Isler_ve_Takvim/Kalan_Isler_ve_Takvim.xlsx   uc sekme
    Is bolumu: asagida
 
 4) Ara rapor
-   01_Kurgu_ve_Mimari_Tasarim.pdf   on yedi sayfa
-       problem tanimi, kullanim senaryolari, sinif tasarimi,
-       ekran taslaklari, kalan isler
+   01_Ara_Rapor.pdf   on sayfa (bir kapak, dokuz govde)
+       problem tanimi ve kullanim senaryolari, sinif tasarimi ve UML,
+       NYP ilkeleri + gereksinim eslestirme tablosu, istisna stratejisi,
+       dosya bicimi, ekran goruntuleri, karsilasilan sorunlar,
+       is bolumu tablosu, yapay zeka beyani, kaynakca
+   (on yedi sayfalik tasarim dosyasi 01_Kurgu_ve_Mimari_Tasarim.pdf
+    pakete konmadi, ic calisma belgesi olarak klasorde duruyor)
 
 IS BOLUMU
 
@@ -64,6 +69,10 @@ Arayuz, ozel istisna, ArrayList ve HashMap, dosya islemleri, lambda ve
 Stream konulari derste islenmedigi icin bu surumde yok. Takvimde ve UML'in
 ikinci sayfasinda hangi tarihte eklenecegi yaziyor. Bu konular eklendiginde
 sekiz zorunlu gereksinimin tamami karsilanmis olacak.
+
+GITHUB DEPOSU
+
+https://github.com/gecekargosu/blg205-butce-takip   (herkese acik, commit gecmisi var)
 
 EK PUAN ICIN SECILENLER
 

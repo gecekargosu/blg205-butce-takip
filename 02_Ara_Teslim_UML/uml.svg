@@ -102,7 +102,7 @@
 <text x="79" y="974" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ setAylikLimit(limit) : void</text>
 <text x="79" y="989" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ limitAsildiMi(toplamGider) : boolean</text>
 <text x="79" y="1004" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ toString() : String</text>
-<rect x="860" y="116" width="680" height="293" fill="#ffffff" stroke="#243b2b" stroke-width="1.8"/>
+<rect x="860" y="116" width="680" height="353" fill="#ffffff" stroke="#243b2b" stroke-width="1.8"/>
 <text x="1200" y="138" font-family="Georgia,serif" font-size="13.5" font-weight="bold" fill="#16261c" text-anchor="middle">ButceService</text>
 <line x1="860" y1="145" x2="1540" y2="145" stroke="#243b2b" stroke-width="1.2"/>
 <text x="869" y="163" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- hesap : ButceHesabi</text>
@@ -116,19 +116,26 @@
 <text x="869" y="275" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ getIslemSayisi() : int</text>
 <text x="869" y="290" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ kategoriEkle(kategori : Kategori) : void</text>
 <text x="869" y="305" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ islemEkle(islem : Islem) : void</text>
-<text x="869" y="320" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ tumIslemleriListele() : void</text>
-<text x="869" y="335" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ toplamGelir() : double</text>
-<text x="869" y="350" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ toplamGider() : double</text>
-<text x="869" y="365" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ netBakiye() : double</text>
-<text x="869" y="380" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ tipAnalizi() : void</text>
-<text x="869" y="395" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ butceOzeti() : void</text>
-<rect x="860" y="566" width="680" height="98" fill="#ffffff" stroke="#243b2b" stroke-width="1.8"/>
+<text x="869" y="320" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ sonEklenenId() : int</text>
+<text x="869" y="335" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ kategorileriListele() : void</text>
+<text x="869" y="350" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ kategoriBul(ad : String) : Kategori</text>
+<text x="869" y="365" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ getKategoriSayisi() : int</text>
+<text x="869" y="380" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ tumIslemleriListele() : void</text>
+<text x="869" y="395" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ toplamGelir() : double</text>
+<text x="869" y="410" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ toplamGider() : double</text>
+<text x="869" y="425" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ netBakiye() : double</text>
+<text x="869" y="440" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ tipAnalizi() : void</text>
+<text x="869" y="455" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ butceOzeti() : void</text>
+<rect x="860" y="566" width="680" height="143" fill="#ffffff" stroke="#243b2b" stroke-width="1.8"/>
 <text x="1200" y="588" font-family="Georgia,serif" font-size="13.5" font-weight="bold" fill="#16261c" text-anchor="middle">Main</text>
 <line x1="860" y1="595" x2="1540" y2="595" stroke="#243b2b" stroke-width="1.2"/>
 <line x1="860" y1="609" x2="1540" y2="609" stroke="#243b2b" stroke-width="1.2"/>
 <text x="869" y="620" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">+ main(args : String[]) : void   {static}</text>
 <text x="869" y="635" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- ornekVerileriYukle(servis) : void   {static}</text>
-<text x="869" y="650" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- menuYazdir() : void   {static}</text>
+<text x="869" y="650" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- gelirEkle(servis, giris) : void   {static}</text>
+<text x="869" y="665" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- giderEkle(servis, giris) : void   {static}</text>
+<text x="869" y="680" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- metindenSayi(metin) : double   {static}</text>
+<text x="869" y="695" font-family="Consolas,Menlo,monospace" font-size="11" fill="#243b2b">- menuYazdir() : void   {static}</text>
 <polyline points="220,520 220,500 265,500 265,473" fill="none" stroke="#243b2b" stroke-width="1.7"/>
 <polygon points="265,473 271,486 259,486" fill="#ffffff" stroke="#243b2b" stroke-width="1.7"/>
 <polygon points="265,471.5 270.2,486 259.8,486" fill="#ffffff" stroke="none"/>
@@ -152,11 +159,11 @@
 <polyline points="860,400 430,400" fill="none" stroke="#243b2b" stroke-width="1.7"/>
 <polyline points="441,395 430,400 441,405" fill="none" stroke="#243b2b" stroke-width="1.7"/>
 <text x="760" y="393" font-family="Georgia,serif" font-size="10.5"  fill="#3d4a42">*</text>
-<polyline points="1565,409 1565,1050 220,1050 220,1018" fill="none" stroke="#243b2b" stroke-width="1.7"/>
+<polyline points="1565,469 1565,1050 220,1050 220,1018" fill="none" stroke="#243b2b" stroke-width="1.7"/>
 <polyline points="225,1029 220,1018 215,1029" fill="none" stroke="#243b2b" stroke-width="1.7"/>
 <text x="200" y="1044" font-family="Georgia,serif" font-size="10.5"  fill="#3d4a42">*</text>
-<polyline points="1210,566 1210,409" fill="none" stroke="#243b2b" stroke-width="1.7" stroke-dasharray="7 5"/>
-<polyline points="1215,420 1210,409 1205,420" fill="none" stroke="#243b2b" stroke-width="1.7"/>
+<polyline points="1210,566 1210,469" fill="none" stroke="#243b2b" stroke-width="1.7" stroke-dasharray="7 5"/>
+<polyline points="1215,480 1210,469 1205,480" fill="none" stroke="#243b2b" stroke-width="1.7"/>
 <rect x="830" y="800" width="760" height="205" fill="#fdfbf3" stroke="#8a6d3b" stroke-width="1.2" stroke-dasharray="5 4"/>
 <text x="850" y="826" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#16261c">Okuma anahtarı</text>
 <text x="850" y="850" font-family="Georgia,serif" font-size="10.5"  fill="#3d4a42">- private      + public      {static} sınıfa ait</text>

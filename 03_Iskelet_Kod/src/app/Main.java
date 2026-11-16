@@ -27,6 +27,10 @@ public class Main {
 
         while (calisiyor) {
             menuYazdir();
+            if (!giris.hasNextLine()) {
+                System.out.println("Giris akisi bitti, program kapatiliyor.");
+                break;
+            }
             String secim = giris.nextLine().trim();
 
             if (secim.equals("1")) {
@@ -85,15 +89,15 @@ public class Main {
         System.out.println("------------------ YENI GELIR ------------------");
         servis.kategorileriListele();
         System.out.print("Aciklama       : ");
-        String aciklama = giris.nextLine().trim();
+        String aciklama = satirOku(giris).trim();
         System.out.print("Tutar (TL)     : ");
-        double tutar = metindenSayi(giris.nextLine());
+        double tutar = metindenSayi(satirOku(giris));
         System.out.print("Tarih          : ");
-        String tarih = giris.nextLine().trim();
+        String tarih = satirOku(giris).trim();
         System.out.print("Kategori adi   : ");
-        Kategori kategori = servis.kategoriBul(giris.nextLine());
+        Kategori kategori = servis.kategoriBul(satirOku(giris));
         System.out.print("Kaynak         : ");
-        String kaynak = giris.nextLine().trim();
+        String kaynak = satirOku(giris).trim();
 
         if (tutar <= 0) {
             System.out.println("Hata: tutar sifirdan buyuk bir sayi olmali. Kayit eklenmedi.");
@@ -120,15 +124,15 @@ public class Main {
         System.out.println("------------------ YENI GIDER ------------------");
         servis.kategorileriListele();
         System.out.print("Aciklama       : ");
-        String aciklama = giris.nextLine().trim();
+        String aciklama = satirOku(giris).trim();
         System.out.print("Tutar (TL)     : ");
-        double tutar = metindenSayi(giris.nextLine());
+        double tutar = metindenSayi(satirOku(giris));
         System.out.print("Tarih          : ");
-        String tarih = giris.nextLine().trim();
+        String tarih = satirOku(giris).trim();
         System.out.print("Kategori adi   : ");
-        Kategori kategori = servis.kategoriBul(giris.nextLine());
+        Kategori kategori = servis.kategoriBul(satirOku(giris));
         System.out.print("Odeme yontemi  : ");
-        String odeme = giris.nextLine().trim();
+        String odeme = satirOku(giris).trim();
 
         if (tutar <= 0) {
             System.out.println("Hata: tutar sifirdan buyuk bir sayi olmali. Kayit eklenmedi.");
@@ -145,6 +149,17 @@ public class Main {
 
         servis.islemEkle(new Gider(aciklama, tutar, tarih, kategori, odeme, false));
         System.out.println("Kayit eklendi. Numara: #" + servis.sonEklenenId());
+    }
+
+    /**
+     * Bir satir okur. Girdi akisi bittiyse bos metin doner,
+     * boylece program istisna firlatip cokmez.
+     */
+    private static String satirOku(Scanner giris) {
+        if (giris.hasNextLine()) {
+            return giris.nextLine();
+        }
+        return "";
     }
 
     /**

@@ -33,20 +33,19 @@ public class Gelir extends Islem {
      * Ayni metot Gider sinifinda eksi donuyor, cok bicimlilik burada gorunuyor.
      */
     @Override
-    /** butceEtkisi sonucunu hesaplayip dondurur. */
     public double butceEtkisi() {
         return getTutar();
     }
 
-    @Override
     /** tip sonucunu hesaplayip dondurur. */
+    @Override
     public String tip() {
         return "Gelir";
     }
 
     // Ust sinifin satirini alip sonuna kaynagi ekliyorum.
-    @Override
     /** Nesnenin ekranda gorunen metin karsiligini dondurur. */
+    @Override
     public String toString() {
         return super.toString() + " | Kaynak: " + kaynak;
     }

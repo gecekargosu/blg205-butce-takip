@@ -77,7 +77,6 @@ public class ButceService {
         return islemler[islemSayisi - 1].getId();
     }
 
-    /** tumIslemleriListele islemini yapar. */
     /**
      * Kayitli kategorileri numarasiyla ekrana yazar.
      * Kullanici gelir veya gider eklerken bu listeden secim yapiyor.
