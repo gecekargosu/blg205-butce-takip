@@ -252,7 +252,8 @@ public class ButceService {
         System.out.println("Hesap            : " + hesap.toString());
         System.out.println("Baslangic bakiye :   +" + Islem.paraYaz(hesap.getBaslangicBakiye()) + " TL");
         System.out.println("Toplam gelir     :  +" + Islem.paraYaz(gelir) + " TL");
-        System.out.println("Toplam gider     :  -" + Islem.paraYaz(gider) + " TL");
+        String giderIsaret = gider > 0 ? "-" : " ";
+        System.out.println("Toplam gider     :  " + giderIsaret + Islem.paraYaz(Math.abs(gider)) + " TL");
 
         if (net < 0) {
             System.out.println("Net bakiye       :  -" + Islem.paraYaz(net) + " TL");
@@ -264,7 +265,8 @@ public class ButceService {
         double buAyGider = toplamGider(seciliAy);
 
         System.out.println("Secili ay        :   " + buAy);
-        System.out.println("Bu ay gider      :  -" + Islem.paraYaz(buAyGider) + " TL");
+        String buAyIsaret = buAyGider > 0 ? "-" : " ";
+        System.out.println("Bu ay gider      :  " + buAyIsaret + Islem.paraYaz(Math.abs(buAyGider)) + " TL");
         System.out.println("Aylik limit      :   " + Islem.paraYaz(hesap.getAylikLimit()) + " TL");
 
         if (hesap.limitAsildiMi(buAyGider)) {

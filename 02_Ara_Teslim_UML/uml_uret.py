@@ -6,7 +6,7 @@ Uzun kurucu satirlari iki satira bolunuyor ki kutu disina tasmasin.
 """
 
 W = 1620
-H = 1120
+H = 1180
 LH = 15.0
 FS = 11.0
 
@@ -124,9 +124,9 @@ baslik(32, 36, "Kişisel Gelir-Gider ve Bütçe Takip Sistemi", 17)
 yazi(32, 56, "UML sınıf diyagramı  |  BLG205 Nesne Tabanlı Programlamaya Giriş  |  "
              "Cengiz Kılıç 251205027  |  Ara teslim", 10.5)
 
-paket(30, 72, 770, 998, "model")
-paket(830, 72, 760, 418, "service")
-paket(830, 520, 760, 250, "app")
+paket(30, 72, 770, 1060, "model")
+paket(830, 72, 760, 515, "service")
+paket(830, 610, 760, 250, "app")
 
 # ------------------------------------------------------------------ model
 isle = kutu(100, 122, 330, "Islem", "abstract",
@@ -169,7 +169,7 @@ kat = kutu(470, 122, 300, "Kategori", None,
             "+ getSayac() : int   {static}",
             "+ toString() : String"])
 
-gel = kutu(70, 520, 300, "Gelir", None,
+gel = kutu(70, 580, 300, "Gelir", None,
            ["- kaynak : String"],
            ["+ Gelir(aciklama, tutar, tarih,",
             "        kategori, kaynak)",
@@ -179,7 +179,7 @@ gel = kutu(70, 520, 300, "Gelir", None,
             "+ tip() : String",
             "+ toString() : String"])
 
-gid = kutu(400, 520, 300, "Gider", None,
+gid = kutu(400, 580, 300, "Gider", None,
            ["- odemeYontemi : String",
             "- zorunluMu : boolean"],
            ["+ Gider(aciklama, tutar, tarih, kategori,",
@@ -192,7 +192,7 @@ gid = kutu(400, 520, 300, "Gider", None,
             "+ tip() : String",
             "+ toString() : String"])
 
-sab = kutu(400, 770, 300, "SabitGider", None,
+sab = kutu(400, 860, 300, "SabitGider", None,
            ["- odemeGunu : int"],
            ["+ SabitGider(aciklama, tutar, tarih, kategori,",
             "             odemeYontemi, odemeGunu)",
@@ -201,7 +201,7 @@ sab = kutu(400, 770, 300, "SabitGider", None,
             "+ tip() : String",
             "+ toString() : String"])
 
-hes = kutu(70, 770, 300, "ButceHesabi", None,
+hes = kutu(70, 860, 300, "ButceHesabi", None,
            ["- sahip : String",
             "- ogrenciNo : String",
             "- aylikLimit : double",
@@ -246,7 +246,7 @@ serv = kutu(860, 116, 680, "ButceService", None,
              "+ seciliAyAyarla(metin : String) : boolean",
              "+ enSonAyiSec() : void"])
 
-mai = kutu(860, 566, 680, "Main", None,
+mai = kutu(860, 656, 680, "Main", None,
            [],
            ["+ main(args : String[]) : void   {static}",
             "- ornekVerileriYukle(servis) : void   {static}",
@@ -258,9 +258,9 @@ mai = kutu(860, 566, 680, "Main", None,
             "- menuYazdir() : void   {static}"])
 
 # ------------------------------------------------------------------ oklar
-ok([(220, 520), (220, 500), (265, 500), (265, isle["y"] + isle["h"])], "kalinim")
-ok([(550, 520), (550, 490), (330, 490), (330, isle["y"] + isle["h"])], "kalinim")
-ok([(550, 770), (550, gid["y"] + gid["h"])], "kalinim")
+ok([(220, 580), (220, 562), (265, 562), (265, isle["y"] + isle["h"])], "kalinim")
+ok([(550, 580), (550, 546), (330, 546), (330, isle["y"] + isle["h"])], "kalinim")
+ok([(550, 860), (550, gid["y"] + gid["h"])], "kalinim")
 
 ok([(470, 220), (430, 220)], "iliski")
 yazi(459, 213, "1")
@@ -273,22 +273,22 @@ yazi(838, 153, "*")
 ok([(860, 400), (430, 400)], "iliski")
 yazi(760, 393, "*")
 
-ok([(1565, serv["y"] + serv["h"]), (1565, 1050), (220, 1050), (220, hes["y"] + hes["h"])], "iliski")
-yazi(200, 1044, "*")
+ok([(1540, 500), (1600, 500), (1600, 1155), (220, 1155), (220, hes["y"] + hes["h"])], "iliski")
+yazi(200, 1149, "*")
 
-ok([(1210, 566), (1210, serv["y"] + serv["h"])], "bagimlilik", kesikli=True)
+ok([(1210, 656), (1210, serv["y"] + serv["h"])], "bagimlilik", kesikli=True)
 
 # ------------------------------------------------------------------ aciklama
-parcalar.append('<rect x="830" y="800" width="760" height="205" fill="#fdfbf3" '
+parcalar.append('<rect x="830" y="890" width="620" height="205" fill="#fdfbf3" '
                 'stroke="#8a6d3b" stroke-width="1.2" stroke-dasharray="5 4"/>')
-baslik(850, 826, "Okuma anahtarı", 12)
-yazi(850, 850, "- private      + public      {static} sınıfa ait")
-yazi(850, 872, "italik ad ve <<abstract>> : soyut sınıf ve soyut metot")
-yazi(850, 894, "içi boş üçgen ok : kalıtım (extends)")
-yazi(850, 916, "kesikli ok : bağımlılık, bir sınıf diğerini kullanıyor")
-yazi(850, 938, "düz çizgi : ilişkilendirme, uçlardaki sayılar çokluk")
-yazi(850, 966, "Islem soyut olduğu için doğrudan nesnesi üretilemez.", 10, 'font-style="italic"')
-yazi(850, 986, "Islem[] dizisi Gelir, Gider ve SabitGider nesnelerini birlikte tutar.", 10, 'font-style="italic"')
+baslik(850, 916, "Okuma anahtarı", 12)
+yazi(850, 940, "- private      + public      {static} sınıfa ait")
+yazi(850, 962, "italik ad ve <<abstract>> : soyut sınıf ve soyut metot")
+yazi(850, 984, "içi boş üçgen ok : kalıtım (extends)")
+yazi(850, 1006, "kesikli ok : bağımlılık, bir sınıf diğerini kullanıyor")
+yazi(850, 1028, "düz çizgi : ilişkilendirme, uçlardaki sayılar çokluk")
+yazi(850, 1056, "Islem soyut olduğu için doğrudan nesnesi üretilemez.", 10, 'font-style="italic"')
+yazi(850, 1076, "Islem[] dizisi Gelir, Gider ve SabitGider nesnelerini birlikte tutar.", 10, 'font-style="italic"')
 
 svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d">\n'
        '<rect width="%d" height="%d" fill="#ffffff"/>\n%s\n</svg>'
