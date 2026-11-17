@@ -9,6 +9,20 @@ takip uygulaması. Saf Java, harici kütüphane yok.
 
 **Depo:** https://github.com/gecekargosu/blg205-butce-takip
 
+## Ekran görüntüleri
+
+Menü ve kayıtlı işlemlerin listesi:
+
+![Menü ve işlem listesi](00_Kapak/ekran/ekran1.png)
+
+Bütçe özeti ve işlem türü analizi:
+
+![Bütçe özeti](00_Kapak/ekran/ekran2.png)
+
+Hatalı tutar girişinde doğrulama, kayıt eklenmez:
+
+![Hatalı tutar](00_Kapak/ekran/ekran3.png)
+
 ## Durum
 
 | Aşama | Tarih | Durum |
@@ -27,7 +41,8 @@ Kod/src/             java kaynak kodları, 8 dosya, 3 paket
 Kod/javadoc/         sınıf ve metot belgeleri (index.html)
 Kod/konsol-kayitlari/ rapora giren gerçek çalışma çıktıları
 Kalan_Isler/         çalışma takvimi (pdf ve xlsx)
-00_Kapak/            rapor ve UML üreteçleri, ekran görüntüleri (pakete girmez)
+00_Kapak/            rapor üreteçleri, terminal görüntüleme betiği ve
+                     ekran görüntüleri (ekran/ klasörü, pakete girmez)
 ```
 
 ## Derleme ve çalıştırma
