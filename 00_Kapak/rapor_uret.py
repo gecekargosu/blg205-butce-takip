@@ -4,7 +4,7 @@ Kapak + govde HTML uretir, Chrome ile A4 PDF basar, sonra reportlab ile
 her sayfaya altbilgi (ders adi, proje adi, sayfa numarasi) ekler.
 Govde metni 11 punto, satir araligi 1,15.
 """
-import os, subprocess, sys, html
+import os, re, subprocess, sys, html
 from pathlib import Path
 
 KOK = Path(__file__).resolve().parent.parent
@@ -66,6 +66,15 @@ pre .y { color: #7ec699; }
 .muhur .kutu { width: 46mm; height: 26mm; border: 0.75pt dashed #999; margin: 0 auto;
                display: flex; align-items: center; justify-content: center; color: #999;
                font-size: 8.5pt; }
+
+/* Icindekiler */
+.icindekiler { page-break-after: always; }
+.toc { width: 100%; border-collapse: collapse; margin: 6pt 0 0 0; font-size: 10.6pt; }
+.toc td { border: none; padding: 2.1pt 0; vertical-align: bottom; }
+.toc td.bas { border-bottom: 0.4pt dotted #c9c9c9; }
+.toc td.no { width: 14mm; text-align: right; }
+.toc tr.d1 td { font-weight: bold; padding-top: 7pt; color: #8b1a1a; }
+.toc tr.d2 td { padding-left: 8mm; }
 """
 
 
@@ -115,7 +124,7 @@ def kapak():
 """
 
 
-def govde():
+def govde(icindekiler="<!--TOC-->"):
     e_menu = konsol_blok("e.txt", "1) Tum islemleri listele", "0) Cikis")
     e_liste = konsol_blok("e.txt", "------- KAYITLI ISLEMLER", "Toplam kayit:")
     e_ozet = konsol_blok("e.txt", "BUTCE OZETI", "Limit durumu")
@@ -126,6 +135,7 @@ def govde():
     c_hata = konsol_blok("c.txt", "YENI GIDER", "Hata: boyle bir kategori")
 
     return f"""
+{icindekiler}
 <h1>1. Problem Tanımı ve Kullanım Senaryoları</h1>
 <p>Bir öğrencinin ya da maaşlı çalışanın ay içinde parasının nereden geldiğini ve nereye gittiğini
 takip etmesi, çoğu zaman dağınık notlar ve banka uygulamaları arasında kaybolur. Bu proje, tek bir
@@ -478,21 +488,107 @@ kodda tasarım deseni kullanılmadı.</li>
 """
 
 
-def uret():
-    icerik = "<html><head><meta charset='utf-8'><style>" + CSS + "</style></head><body>" + kapak() + govde() + "</body></html>"
+BASLIK_DESEN = re.compile(r"<h([12])[^>]*>(.*?)</h\1>", re.S)
+
+
+def sadelestir(metin):
+    """Etiketleri temizler, bosluklari tek bosluga indirir."""
+    metin = re.sub(r"<[^>]+>", "", metin)
+    metin = html.unescape(metin).replace("\u00ad", "").replace("\xa0", " ")
+    return re.sub(r"\s+", " ", metin).strip()
+
+
+def baslik_listesi(html_metni):
+    """Icindekiler icin h1 ve h2 basliklarini sirayla toplar."""
+    liste = []
+    for bulunan in BASLIK_DESEN.finditer(html_metni):
+        ham = bulunan.group(2).split("<span")[0]
+        metin = sadelestir(ham)
+        if metin and metin != "İçindekiler":
+            liste.append((int(bulunan.group(1)), metin))
+    return liste
+
+
+def icindekiler_html(basliklar, sayfalar):
+    """Baslik ve sayfa numaralarindan icindekiler tablosu uretir."""
+    satirlar = []
+    for seviye, metin in basliklar:
+        no = sayfalar.get(metin, "")
+        satirlar.append(
+            '<tr class="d%d"><td class="bas">%s</td><td class="no">%s</td></tr>'
+            % (seviye, html.escape(metin), no)
+        )
+    return (
+        '<div class="icindekiler"><h1 class="tocbaslik">İçindekiler</h1>'
+        '<table class="toc">%s</table></div>' % "\n".join(satirlar)
+    )
+
+
+def pdf_bas(html_metni, ham):
+    """HTML'i Chrome ile A4 PDF'e basar, ham dosya yolunu dondurur."""
     gecici = KOK / "00_Kapak/_rapor.html"
-    gecici.write_text(icerik, encoding="utf-8")
-    ham = KOK / "00_Kapak/_rapor_ham.pdf"
+    gecici.write_text(html_metni, encoding="utf-8")
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-sandbox",
                     "--user-data-dir=" + os.environ.get("TEMP", ".") + "/chr_rapor",
                     "--no-pdf-header-footer", "--print-to-pdf=" + str(ham),
                     "file:///" + gecici.as_posix()], capture_output=True, timeout=180)
-    if not ham.exists():
-        print("HATA: PDF uretilemedi"); return
-    altbilgi_ekle(ham, CIKTI)
-    ham.unlink(missing_ok=True)
     gecici.unlink(missing_ok=True)
-    print("uretildi:", CIKTI, os.path.getsize(CIKTI), "bayt")
+    if not ham.exists():
+        raise SystemExit("HATA: PDF uretilemedi")
+    return ham
+
+
+def sayfa_bul(ham, basliklar):
+    """Her basligin ilk gorundugu fiziksel sayfa indeksini bulur, kapak 0 sayilir.
+
+    Icindekiler sayfasi basliklari da icerdigi icin atlanir, yoksa butun
+    numaralar o sayfayi gosterir.
+    """
+    from pypdf import PdfReader
+    okuyucu = PdfReader(str(ham))
+    sayfalar = [sadelestir(sayfa.extract_text() or "") for sayfa in okuyucu.pages]
+    atla = {i for i, metin in enumerate(sayfalar) if metin.startswith("İçindekiler")}
+    sonuc = {}
+    for _, baslik in basliklar:
+        aranan = baslik[:48]
+        for i in range(1, len(sayfalar)):
+            if i in atla:
+                continue
+            if aranan in sayfalar[i]:
+                sonuc[baslik] = i
+                break
+        else:
+            raise SystemExit("Baslik sayfada bulunamadi: %s" % baslik)
+    return sonuc
+
+
+def uret():
+    """Iki gecisle uretir: once yer tutucuyla basar, sayfa numaralarini bulur, sonra bastan basar."""
+    temel = ("<html><head><meta charset='utf-8'><style>" + CSS + "</style></head><body>"
+             + kapak() + govde() + "</body></html>")
+    basliklar = baslik_listesi(temel.replace("<!--TOC-->", ""))
+
+    # Ilk gecis: icindekiler bos numaralarla basildigi icin sayfa duzeni son
+    # halle ayni kalir, bulunan numaralar ikinci geciste gecerli olur.
+    bos = temel.replace("<!--TOC-->", icindekiler_html(basliklar, {}))
+    ham = pdf_bas(bos, KOK / "00_Kapak/_rapor_ham1.pdf")
+    sayfalar = sayfa_bul(ham, basliklar)
+
+    icerik = temel.replace("<!--TOC-->", icindekiler_html(basliklar, sayfalar))
+    ham = pdf_bas(icerik, KOK / "00_Kapak/_rapor_ham2.pdf")
+    dogrulama = sayfa_bul(ham, basliklar)
+    if dogrulama != sayfalar:
+        sayfalar = dogrulama
+        icerik = temel.replace("<!--TOC-->", icindekiler_html(basliklar, sayfalar))
+        ham = pdf_bas(icerik, KOK / "00_Kapak/_rapor_ham3.pdf")
+        dogrulama = sayfa_bul(ham, basliklar)
+        if dogrulama != sayfalar:
+            raise SystemExit("HATA: sayfa numaralari kararli degil, icindekiler kayiyor")
+
+    altbilgi_ekle(ham, CIKTI)
+    for eski in (KOK / "00_Kapak").glob("_rapor_ham*.pdf"):
+        eski.unlink(missing_ok=True)
+    print("uretildi:", CIKTI, os.path.getsize(CIKTI), "bayt |", len(dogrulama), "baslik")
 
 
 def altbilgi_ekle(kaynak, hedef):

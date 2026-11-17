@@ -9,14 +9,20 @@
 5) Yeni gider ekle
 6) Ozet ayini sec (MM.yyyy)
 0) Cikis
-Seciminiz: ------------------ YENI GIDER ------------------
+Seciminiz: 5
+------------------ YENI GIDER ------------------
 Kategoriler: 
   1 - Maas (GELIR)
   2 - Burs (GELIR)
   3 - Kira (GIDER)
   4 - Fatura (GIDER)
   5 - Market (GIDER)
-Aciklama       : Tutar (TL)     : Tarih          : Kategori adi   : Odeme yontemi  : Hata: boyle bir kategori yok. Kayit eklenmedi.
+Aciklama       : Deneme kaydi
+Tutar (TL)     : 350
+Tarih          : 13.11.2026
+Kategori adi   : Yok
+Odeme yontemi  : Nakit
+Hata: boyle bir kategori yok. Kayit eklenmedi.
 
 =======================================================
      KISISEL GELIR GIDER VE BUTCE TAKIP SISTEMI
@@ -28,4 +34,5 @@ Aciklama       : Tutar (TL)     : Tarih          : Kategori adi   : Odeme yontem
 5) Yeni gider ekle
 6) Ozet ayini sec (MM.yyyy)
 0) Cikis
-Seciminiz: Program kapatiliyor.
+Seciminiz: 0
+Program kapatiliyor.
