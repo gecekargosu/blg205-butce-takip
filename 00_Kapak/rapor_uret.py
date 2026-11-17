@@ -120,7 +120,7 @@ def kapak():
     <tr><td class="b">Öğretim Üyesi</td><td class="i">:</td><td>Doç. Dr. Aykut Diker</td></tr>
     <tr><td class="b">Grup No</td><td class="i">:</td><td>— (bireysel proje)</td></tr>
     <tr><td class="b">Proje Türü</td><td class="i">:</td><td>Bireysel proje</td></tr>
-    <tr><td class="b">Teslim Tarihi</td><td class="i">:</td><td>22.11.2026</td></tr>
+    <tr><td class="b">Teslim Tarihi</td><td class="i">:</td><td>16.11.2026</td></tr>
   </table>
 </div>
 <div class="sayfa"></div>
@@ -419,7 +419,7 @@ nesnesi, SABIT ise SabitGider nesnesi üretilecek. Böylece çok biçimlilik yal
 dosyadan geri yüklemede de kullanılmış olacak.</p>
 
 <h1>6. Ekran Görüntüleri</h1>
-<p>Aşağıdaki görüntüler programın gerçek çıktısıdır. Menü, kayıt listesi, bütçe özeti ve tür analizi
+<p>Aşağıdaki çıktılar programın gerçek çalışmasından alınmıştır. Menü, kayıt listesi, bütçe özeti ve tür analizi
 normal akışı, son iki görüntü hatalı giriş senaryolarını gösterir.</p>
 
 <h2>6.1 Ana menü</h2>
