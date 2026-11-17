@@ -502,24 +502,12 @@ dönüş.</td></tr>
 
 <h1>9. Yapay Zekâ Kullanım Beyanı ve Kaynakça</h1>
 <h2>9.1 Beyan</h2>
-<p>Bu projede yapay zekâ araçlarından aşağıdaki işlerde destek aldım. Kullanım alanlarını tek tek
-yazıyorum.</p>
-<table>
-<tr><th style="width:52mm">Kullanım alanı</th><th>Ne yapıldı</th></tr>
-<tr><td>Sınıf yapısının ilk taslağı</td><td>Sekiz sınıfın sorumluluk dağılımı ve paket yerleşimi için
-öneri alındı. Taslakta on bir sınıf vardı, işlevsiz olanlar çıkarılıp sekize indirildi.</td></tr>
-<tr><td>Kod yazımı ve sadeleştirme</td><td>Metot gövdeleri yazıldı, ardından her metot satır satır
-okunup anlaşılmayan kısımlar sadeleştirildi.</td></tr>
-<tr><td>Derleme ve hata ayıklama</td><td>Kodun derlenmesi, JDK 17 uyumunun denenmesi ve hatalı giriş
-senaryolarının çalıştırılması.</td></tr>
-<tr><td>Belge düzeni</td><td>Rapor metninin başlık yapısı, sayfa düzeni, 11 punto yazı boyutu, 1,15
-satır aralığı, sayfa altı bilgi satırı ve sayfa numarası ayarları.</td></tr>
-<tr><td>Kapak sayfası</td><td>Kapak yerleşimi, üniversite logosunun yerleştirilmesi ve bilgi tablosunun
-hizalanması.</td></tr>
-<tr><td>PDF üretimi</td><td>Belgelerin PDF çıktısının alınması ve sayfa numaralarının eklenmesi.</td></tr>
-<tr><td>Javadoc belgeleri</td><td>Sınıf ve metot açıklamalarının yazılması, Javadoc çıktısının
-üretilmesi.</td></tr>
-</table>
+<p>Bu projede yapay zekâ destekli bir asistan yalnızca destek amacıyla kullanıldı.
+Kullanım alanları kod taslağı oluşturma, derleme ve çalışma hatasının ayıklanması, rapor ve
+Javadoc metninin dil ve biçim düzeltmesidir. Üretilen her çıktı satır satır okunmuş,
+derlenmiş, çalıştırılmış ve bu raporda gösterilen çıktılarla karşılaştırılmıştır. Sınıf
+tasarımı, testlerin yorumu ve nihai metinden öğrenci sorumludur. Beyan edilen alanlar
+dışında araç kullanılmamıştır. Sunumda kodun tamamı sözlü olarak açıklanacaktır.</p>
 <p>Tasarım kararları, sınıf sayısı, hangi özelliğin projeye girip girmeyeceği ve kodun savunulabilir
 sadeliği bana aittir. Sunumda sorulan sorulara kendi kodum üzerinden cevap vereceğim.</p>
 
