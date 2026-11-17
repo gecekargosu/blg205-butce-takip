@@ -32,15 +32,25 @@ CSS = """
 * { box-sizing: border-box; }
 body { font-family: 'Calibri', 'Segoe UI', Arial, sans-serif; font-size: 11pt;
        line-height: 1.15; color: #111; margin: 0; }
-h1 { font-size: 15pt; margin: 0 0 8pt 0; padding-bottom: 4pt; border-bottom: 1.5pt solid #8b1a1a; }
-h2 { font-size: 12.5pt; margin: 14pt 0 5pt 0; color: #8b1a1a; page-break-after: avoid; }
+h1 { font-size: 15pt; margin: 16pt 0 8pt 0; padding-bottom: 4pt; border-bottom: 1.5pt solid #8b1a1a;
+     page-break-after: avoid; break-after: avoid; }
+h2 { font-size: 12.5pt; margin: 14pt 0 5pt 0; color: #8b1a1a; page-break-after: avoid;
+     break-after: avoid; }
 h3 { font-size: 11pt; margin: 10pt 0 4pt 0; }
-p { margin: 0 0 6pt 0; text-align: justify; }
+p { margin: 0 0 6pt 0; text-align: justify; orphans: 2; widows: 2; }
 ul, ol { margin: 0 0 6pt 0; padding-left: 16pt; }
 li { margin-bottom: 2pt; }
-table { border-collapse: collapse; width: 100%; font-size: 10pt; margin: 5pt 0 8pt 0; }
+table { border-collapse: collapse; width: 100%; font-size: 10pt; margin: 5pt 0 8pt 0;
+        page-break-inside: avoid; break-inside: avoid; }
 th, td { border: 0.75pt solid #888; padding: 3.5pt 5pt; vertical-align: top; }
 th { background: #f0e6e6; font-weight: bold; text-align: left; }
+tr { page-break-inside: avoid; break-inside: avoid; }
+thead { display: table-header-group; }
+.blok { page-break-inside: avoid; break-inside: avoid; }
+.yeni { page-break-before: always; break-before: page; }
+tbody { page-break-inside: auto; break-inside: auto; }
+.toc, .kapak table { page-break-inside: auto; break-inside: auto; }
+
 code { font-family: Consolas, monospace; font-size: 9.5pt; background: #f4f4f4; padding: 0 2pt; }
 pre { font-family: Consolas, monospace; font-size: 8.2pt; line-height: 1.25; background: #1e1e1e;
       color: #e8e8e8; padding: 6pt 8pt; border-radius: 3pt; white-space: pre-wrap;
@@ -560,8 +570,55 @@ def icindekiler_html(basliklar, sayfalar):
     )
 
 
+
+
+BLOK_DESEN = re.compile(
+    r"(<h[12][^>]*>[^<]*</h[12]>)"
+    r"((?:\s*<p[^>]*>(?:(?!</p>)(?!<h[12])(?!<table).)*</p>)?)"
+    r"(\s*<table>.*?</table>)",
+    re.S,
+)
+
+
+def blok_sar(html_metni):
+    """Baslik, aciklamasi ve tablosunu tek blok yapar.
+
+    Blok tek sayfaya sigdigi surece bolunmez, sigmadiginda butun halinde
+    sonraki sayfaya gecer. Baslik sayfa dibinde yalniz kalmaz.
+    """
+    sayac = [0]
+
+    def sar(b):
+        baslik = b.group(1)
+        sinif = "blok"
+        if baslik.startswith("<h1"):
+            sayac[0] += 1
+            sinif = "blok yeni"
+        return '<div class="%s">%s%s%s</div>' % (sinif, baslik, b.group(2), b.group(3))
+
+    return BLOK_DESEN.sub(sar, html_metni)
+
+
+def tablo_duzenle(html_metni):
+    """Ilk satiri baslik olan tabloyu thead ve tbody olarak ayirir.
+
+    Bolunmek zorunda kalan uzun tabloda baslik satiri her sayfada tekrarlanir.
+    """
+    def isle(bulunan):
+        govde = bulunan.group(1)
+        ilk = re.search(r"<tr[^>]*>.*?</tr>", govde, re.S)
+        if not ilk or "<th" not in ilk.group(0):
+            return bulunan.group(0)
+        bas = ilk.group(0)
+        kalan = govde[govde.index(bas) + len(bas):]
+        return "<table><thead>%s</thead><tbody>%s</tbody></table>" % (bas, kalan)
+
+    return blok_sar(re.sub(r"<table>(.*?)</table>", isle, html_metni, flags=re.S))
+
+
 def pdf_bas(html_metni, ham):
     """HTML'i Chrome ile A4 PDF'e basar, ham dosya yolunu dondurur."""
+    html_metni = tablo_duzenle(html_metni)
     gecici = KOK / "00_Kapak/_rapor.html"
     gecici.write_text(html_metni, encoding="utf-8")
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-sandbox",

@@ -34,7 +34,7 @@ Hatalı tutar girişinde doğrulama, kayıt eklenmez:
 ## Klasör yapısı
 
 ```
-Rapor.pdf            ara teslim raporu, 13 sayfa
+Rapor.pdf            ara teslim raporu, 14 sayfa
 README.txt           derleme ve çalıştırma talimatları
 UML/                 UML sınıf diyagramı (pdf iki sayfa, png, svg, üreteç betiği)
 Kod/src/             java kaynak kodları, 8 dosya, 3 paket
