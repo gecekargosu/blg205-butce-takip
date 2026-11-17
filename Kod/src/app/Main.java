@@ -18,7 +18,7 @@ import service.ButceService;
  */
 public class Main {
 
-    /** main sonucunu hesaplayip dondurur. */
+    /** Menuyu calistiran giris noktasi. */
     public static void main(String[] args) {
         ButceHesabi hesap = new ButceHesabi("Cengiz Kilic", "251205027", 25000.0, 5000.0);
         ButceService servis = new ButceService(hesap, 100);
@@ -62,8 +62,8 @@ public class Main {
 
     /**
      * Acilista ornek kayitlari ekliyor. Boylece menu ilk acildiginda
-     * liste bos gorunmuyor. Ekleme ekrani geldiginde bu metot kalkacak,
-     * yerine kullanicinin kendi girdigi kayitlar gelecek.
+     * liste bos gorunmuyor. Menu 4 ve 5 ile kullanici kendi kayitlarini da
+     * ekleyebiliyor, ornek kayitlar yalnizca baslangic icin var.
      */
     private static void ornekVerileriYukle(ButceService servis) {
         Kategori maas = new Kategori("Maas", "GELIR");
@@ -224,7 +224,7 @@ public class Main {
         System.out.print("Ay (MM.yyyy, ornek 11.2026): ");
         String metin = satirOku(giris).trim();
         if (servis.seciliAyAyarla(metin)) {
-            System.out.println("Ozet ayi " + servis.getSeciliAy() + " olarak degistirildi.");
+            System.out.println("Ozet ayi " + servis.getSeciliAy().format(java.time.format.DateTimeFormatter.ofPattern("MM.yyyy")) + " olarak degistirildi.");
         } else {
             System.out.println("Hata: ay MM.yyyy biciminde olmali. Eski ay korundu.");
         }

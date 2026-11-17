@@ -39,7 +39,7 @@ public class Gelir extends Islem {
         return getTutar();
     }
 
-    /** tip sonucunu hesaplayip dondurur. */
+    /** Ekranda yazilan islem turu. */
     @Override
     public String tip() {
         return "Gelir";

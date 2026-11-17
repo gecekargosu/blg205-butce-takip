@@ -33,7 +33,7 @@ public class SabitGider extends Gider {
     }
 
     // Ust siniftaki etiketi degistiriyor, ekranda "Sabit Gider" yazacak.
-    /** tip sonucunu hesaplayip dondurur. */
+    /** Ekranda yazilan islem turu. */
     @Override
     public String tip() {
         return "Sabit Gider";

@@ -24,7 +24,7 @@ public class Gider extends Islem {
         return odemeYontemi;
     }
 
-    /** isZorunluMu sonucunu hesaplayip dondurur. */
+    /** Giderin zorunlu olup olmadigini soyler. */
     public boolean isZorunluMu() {
         return zorunluMu;
     }
@@ -52,7 +52,7 @@ public class Gider extends Islem {
         return -getTutar();
     }
 
-    /** tip sonucunu hesaplayip dondurur. */
+    /** Ekranda yazilan islem turu. */
     @Override
     public String tip() {
         return "Gider";

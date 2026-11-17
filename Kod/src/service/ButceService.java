@@ -91,7 +91,7 @@ public class ButceService {
         return islemSayisi;
     }
 
-    /** kategoriEkle islemini yapar. */
+    /** Yeni kategoriyi listeye ekler. */
     public void kategoriEkle(Kategori kategori) {
         if (kategoriSayisi >= kategoriler.length) {
             System.out.println("Uyari: kategori kapasitesi doldu.");
@@ -212,7 +212,7 @@ public class ButceService {
         return toplam;
     }
 
-    /** netBakiye sonucunu hesaplayip dondurur. */
+    /** Baslangic bakiye arti gelir eksi gider. */
     public double netBakiye() {
         return hesap.getBaslangicBakiye() + toplamGelir() - toplamGider();
     }
@@ -244,7 +244,7 @@ public class ButceService {
         System.out.println("Toplam            : " + islemSayisi);
     }
 
-    /** butceOzeti islemini yapar. */
+    /** Ozet ekranini yazar. */
     public void butceOzeti() {
         double gelir = toplamGelir();
         double gider = toplamGider();
