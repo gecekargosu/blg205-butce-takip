@@ -4,6 +4,8 @@ package model;
  * Her ay tekrarlayan gider. Gider sinifindan tureiyor.
  * Boylece kalitim hiyerarsisi uc seviye oluyor: Islem, Gider, SabitGider.
  * Ek olarak odeme gununu tutuyor, ornek kira her ayin 5. gunu.
+  *
+  * @author Cengiz Kilic
  */
 public class SabitGider extends Gider {
 

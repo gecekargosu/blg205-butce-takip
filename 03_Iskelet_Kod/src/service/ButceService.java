@@ -19,6 +19,8 @@ import model.SabitGider;
  * Kayitlar su an sabit boyutlu dizide tutuluyor. Bu bilincli bir tercih,
  * cunku ArrayList konusu henuz islenmedi. Hafta 11'den sonra ArrayList'e
  * cevrilecek, metot imzalari ayni kalacagi icin disaridan bir sey degismeyecek.
+  *
+  * @author Cengiz Kilic
  */
 public class ButceService {
 

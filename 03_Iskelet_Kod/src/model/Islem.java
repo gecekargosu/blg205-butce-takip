@@ -14,6 +14,8 @@ import java.time.format.ResolverStyle;
  * Id uretimi icin static sayac kullaniliyor. Boylece her yeni islem
  * kendi numarasini otomatik aliyor, programin baska yerinde numara tutmak
  * gerekmiyor.
+  *
+  * @author Cengiz Kilic
  */
 public abstract class Islem {
 

@@ -3,6 +3,8 @@ package model;
 /**
  * Gelir kaydi. Islem sinifindan tureiyor ve butceye arti yonde etki ediyor.
  * Gelire ozgu tek alan kaynak: maas, burs, proje gibi.
+  *
+  * @author Cengiz Kilic
  */
 public class Gelir extends Islem {
 

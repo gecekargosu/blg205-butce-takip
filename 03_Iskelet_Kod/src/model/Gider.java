@@ -3,6 +3,8 @@ package model;
 /**
  * Gider kaydi. Islem sinifindan tureiyor ve butceye eksi yonde etki ediyor.
  * Odeme yontemi ve zorunlu olup olmadigi gidere ozgu alanlar.
+  *
+  * @author Cengiz Kilic
  */
 public class Gider extends Islem {
 

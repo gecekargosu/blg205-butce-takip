@@ -4,6 +4,8 @@ package model;
  * Kategori sinifi, bir islemin hangi basliga ait oldugunu tutar.
  * Ornek: Maas, Burs, Kira, Fatura, Market.
  * Her kategori olusturuldugunda static sayac bir artar ve id otomatik verilir.
+  *
+  * @author Cengiz Kilic
  */
 public class Kategori {
 

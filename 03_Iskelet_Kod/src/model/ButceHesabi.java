@@ -4,6 +4,8 @@ package model;
  * Butce hesabinin kimligi ve siniri. Ucuz bir sinif gibi gorunuyor ama
  * hesap bilgilerini islemlerden ayirdim, cunku islem listesi ile
  * hesap bilgisi ayri sorumluluklar.
+  *
+  * @author Cengiz Kilic
  */
 public class ButceHesabi {
 

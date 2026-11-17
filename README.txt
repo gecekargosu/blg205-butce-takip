@@ -1,48 +1,53 @@
-BLG205 NESNE TABANLI PROGRAMLAMAYA GIRIS
-Kisisel Gelir-Gider ve Butce Takip Sistemi - Ara Teslim
-Cengiz Kilic - 251205027 - Yapay Zeka ve Makine Ogrenmesi
+BLG205 NESNE TABANLI PROGRAMLAMAYA GİRİŞ
+Kişisel Gelir Gider ve Bütçe Takip Sistemi, Ara Teslim
+Cengiz Kılıç, 251205027, Yapay Zekâ ve Makine Öğrenmesi
 
 1) ORTAM
-   JDK    : 25 ile derlendi ve calistirildi. Kod 17 ve uzeri tum surumlerde derlenir
-            (javac --release 17 ile de denendi, hata yok).
-   IDE    : Zorunlu degil. Komut satiri yeterli. IntelliJ IDEA veya Eclipse ile
-            proje kok dizini acilip src klasoru kaynak olarak gosterilebilir.
+   JDK    : 25 ile derlendi ve çalıştırıldı. Kod 17 ve üzeri tüm sürümlerde
+            derlenir (javac --release 17 ile de denendi, hata yok).
+   IDE    : Zorunlu değil, komut satırı yeterli. IntelliJ IDEA veya Eclipse
+            ile proje kök dizini açılıp src klasörü kaynak olarak gösterilebilir.
 
 2) DERLEME
    cd 03_Iskelet_Kod
    javac -encoding UTF-8 -d build src/model/*.java src/service/*.java src/app/*.java
 
-3) CALISTIRMA
+3) ÇALIŞTIRMA
    cd 03_Iskelet_Kod
    java -cp build app.Main
 
-4) MENU
-   1) Tum islemleri listele
-   2) Butce ozeti
-   3) Islem turu analizi
+4) MENÜ
+   1) Tüm işlemleri listele
+   2) Bütçe özeti
+   3) İşlem türü analizi
    4) Yeni gelir ekle
    5) Yeni gider ekle
-   6) Ozet ayini sec (MM.yyyy)
-   0) Cikis
+   6) Özet ayını seç (MM.yyyy)
+   0) Çıkış
 
-5) ORNEK VERI
-   Program acilirken Main.ornekVerileriYukle metodu alti kayit yukler, menu
-   hemen denenebilir. Dosyadan okuma ve yazma hafta 13 konusu oldugu icin bu
-   surumde yok, final surumunde data/islemler.txt eklenecek.
+5) ÖRNEK VERİ
+   Program açılırken Main.ornekVerileriYukle metodu altı kayıt yükler, menü
+   hemen denenebilir. Dosyadan okuma ve yazma hafta 13 konusu olduğu için bu
+   sürümde yoktur, final sürümünde data/islemler.txt eklenecektir.
 
-6) GITHUB DEPOSU (herkese acik)
+6) KODLAMA
+   Kaynak dosyalar ASCII tutulmuştur, böylece bölge ayarı ve konsol kodlaması
+   farklı olan makinelerde derleme ve çıktı bozulmaz. Belgeler tam Türkçe
+   karakter kullanır.
+
+7) GITHUB DEPOSU
    https://github.com/gecekargosu/blg205-butce-takip
-   Depoda kaynak kodun commit gecmisi, UML ve rapor bulunur.
-   Hoca kontrol icin dogrudan bu baglantidan inceleyebilir.
+   Depoya herkes erişebilir. Depoda kaynak kodun commit geçmişi, UML ve
+   rapor bulunur.
 
-7) DEMO VIDEOSU
-   Final tesliminde eklenecek 5-8 dakikalik ekran kaydi baglantisi buraya yazilacak.
+8) DEMO VİDEOSU
+   Final tesliminde eklenecek 5-8 dakikalık ekran kaydı bağlantısı:
+   (bağlantı final tesliminden önce buraya yazılacak)
 
-8) PAKET ICERIGI
-   01_Ara_Rapor.pdf          ara rapor
-   02_Ara_Teslim_UML/        UML sinif diyagrami, pdf (iki sayfa) ve png
-   03_Iskelet_Kod/src/       sekiz java dosyasi, uc paket
-   03_Iskelet_Kod/javadoc/   sinif ve metot belgeleri, ek puan kalemi
-                             (index.html tarayicida acilir)
-   04_Kalan_Isler_ve_Takvim/ kalan isler ve takvim, pdf
+9) PAKET İÇERİĞİ
+   01_Ara_Rapor.pdf          ara rapor, 13 sayfa
+   02_Ara_Teslim_UML/        UML sınıf diyagramı, pdf (iki sayfa) ve png
+   03_Iskelet_Kod/src/       sekiz java dosyası, üç paket
+   03_Iskelet_Kod/javadoc/   sınıf ve metot belgeleri (index.html tarayıcıda açılır)
+   04_Kalan_Isler_ve_Takvim/ kalan işler ve takvim, pdf
    README.txt                bu dosya

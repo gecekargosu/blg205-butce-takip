@@ -13,6 +13,8 @@ import service.ButceService;
 /**
  * Programin baslangic noktasi. Burada is mantigi yok,
  * sadece menu ve ornek veriler var. Hesaplamalarin hepsi ButceService icinde.
+  *
+  * @author Cengiz Kilic
  */
 public class Main {
 
