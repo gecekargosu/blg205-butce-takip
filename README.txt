@@ -45,9 +45,9 @@ Cengiz Kılıç, 251205027, Yapay Zekâ ve Makine Öğrenmesi
    (bağlantı final tesliminden önce buraya yazılacak)
 
 9) PAKET İÇERİĞİ
-   Rapor.pdf          ara rapor, 13 sayfa
-   UML/        UML sınıf diyagramı, pdf (iki sayfa) ve png
+   Rapor.pdf      ara rapor, 13 sayfa
+   UML/           UML sınıf diyagramı, pdf (iki sayfa) ve png
    Kod/src/       sekiz java dosyası, üç paket
    Kod/javadoc/   sınıf ve metot belgeleri (index.html tarayıcıda açılır)
-   Kalan_Isler/ kalan işler ve takvim, pdf
-   README.txt                bu dosya
+   Kalan_Isler/   kalan işler ve takvim, pdf
+   README.txt     bu dosya
