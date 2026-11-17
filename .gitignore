@@ -1,6 +1,6 @@
 *.zip
 00_Kapak/_rapor*.html
 00_Kapak/_rapor_ham.pdf
-03_Iskelet_Kod/build/
+Kod/build/
 *.class
 _tur_kayitlari/

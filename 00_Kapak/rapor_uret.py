@@ -5,14 +5,16 @@ her sayfaya altbilgi (ders adi, proje adi, sayfa numarasi) ekler.
 Govde metni 11 punto, satir araligi 1,15.
 """
 import os, re, subprocess, sys, html
+
+import pypdf
 from pathlib import Path
 
 KOK = Path(__file__).resolve().parent.parent
 CHROME = r"C:/Program Files/Google/Chrome/Application/chrome.exe"
 LOGO = KOK / "00_Kapak/assets/image1.png"
-UML = KOK / "02_Ara_Teslim_UML/UML_Sinif_Diyagrami.png"
-KAYIT = KOK / "03_Iskelet_Kod/konsol-kayitlari"
-CIKTI = KOK / "01_Ara_Rapor.pdf"
+UML = KOK / "UML/UML_Sinif_Diyagrami.png"
+KAYIT = KOK / "Kod/konsol-kayitlari"
+CIKTI = KOK / "Rapor.pdf"
 
 
 def konsol(ad, bas=0, son=99):
@@ -139,7 +141,7 @@ KOD_GOREV = {
 
 def kod_tablosu():
     """Kaynak dosyalari satir sayisi ve gorevleriyle listeler."""
-    kok = KOK / "03_Iskelet_Kod" / "src"
+    kok = KOK / "Kod" / "src"
     satirlar = []
     toplam = 0
     for yol in sorted(kok.rglob("*.java")):
@@ -608,6 +610,21 @@ def sayfa_bul(ham, basliklar):
     return sonuc
 
 
+def kunye_temizle(yol):
+    """PDF kunyesini bosaltir, uretim araci bilgisi dosyada kalmaz."""
+    okuyucu = pypdf.PdfReader(yol)
+    yazici = pypdf.PdfWriter()
+    for sayfa in okuyucu.pages:
+        yazici.add_page(sayfa)
+    bilgi = yazici._info.get_object()
+    for anahtar in list(bilgi.keys()):
+        del bilgi[anahtar]
+    gecici = str(yol) + ".tmp"
+    with open(gecici, "wb") as dosya:
+        yazici.write(dosya)
+    os.replace(gecici, yol)
+
+
 def uret():
     """Iki gecisle uretir: once yer tutucuyla basar, sayfa numaralarini bulur, sonra bastan basar."""
     temel = ("<html><head><meta charset='utf-8'><style>" + CSS + "</style></head><body>"
@@ -632,6 +649,7 @@ def uret():
             raise SystemExit("HATA: sayfa numaralari kararli degil, icindekiler kayiyor")
 
     altbilgi_ekle(ham, CIKTI)
+    kunye_temizle(CIKTI)
     for eski in (KOK / "00_Kapak").glob("_rapor_ham*.pdf"):
         eski.unlink(missing_ok=True)
     print("uretildi:", CIKTI, os.path.getsize(CIKTI), "bayt |", len(dogrulama), "baslik")

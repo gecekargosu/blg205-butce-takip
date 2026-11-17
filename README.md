@@ -1,11 +1,11 @@
-# Kişisel Gelir-Gider ve Bütçe Takip Sistemi
+# Kişisel Gelir Gider ve Bütçe Takip Sistemi
 
-BLG205 Nesne Tabanlı Programlamaya Giriş — dönem projesi
+BLG205 Nesne Tabanlı Programlamaya Giriş, dönem projesi
 Cengiz Kılıç, 251205027
 İstanbul Rumeli Üniversitesi, Yapay Zekâ ve Makine Öğrenmesi
 
-Konsol tabanlı, veritabanı kullanmayan, verisini metin dosyasında tutan bir bütçe takip uygulaması.
-Saf Java, harici kütüphane yok.
+Konsol tabanlı, veritabanı kullanmayan, verisini metin dosyasında tutan bir bütçe
+takip uygulaması. Saf Java, harici kütüphane yok.
 
 **Depo:** https://github.com/gecekargosu/blg205-butce-takip
 
@@ -13,24 +13,27 @@ Saf Java, harici kütüphane yok.
 
 | Aşama | Tarih | Durum |
 |---|---|---|
-| Ara teslim (UML + iskelet kod + takvim) | 16 Kasım 2026 | Tamamlandı |
+| Ara teslim (UML, iskelet kod, kalan işler planı) | 22 Kasım 2026 | Tamamlandı |
 | Final teslimi | 18 Aralık 2026 | Devam ediyor |
 | Sunum | 23 Aralık 2026 | Bekliyor |
 
 ## Klasör yapısı
 
 ```
-01_Kurgu_ve_Mimari_Tasarim.pdf   tasarım dosyası, 17 sayfa
-02_Ara_Teslim_UML/               UML sınıf diyagramı, 2 sayfa
-03_Iskelet_Kod/src/              java kaynak kodları
-04_Kalan_Isler_ve_Takvim/        çalışma takvimi
-05_Rapor_Plani/                  final raporunun iskeleti
+Rapor.pdf            ara teslim raporu, 13 sayfa
+README.txt           derleme ve çalıştırma talimatları
+UML/                 UML sınıf diyagramı (pdf iki sayfa, png, svg, üreteç betiği)
+Kod/src/             java kaynak kodları, 8 dosya, 3 paket
+Kod/javadoc/         sınıf ve metot belgeleri (index.html)
+Kod/konsol-kayitlari/ rapora giren gerçek çalışma çıktıları
+Kalan_Isler/         çalışma takvimi (pdf ve xlsx)
+00_Kapak/            rapor ve UML üreteçleri, ekran görüntüleri (pakete girmez)
 ```
 
 ## Derleme ve çalıştırma
 
 ```
-cd 03_Iskelet_Kod
+cd Kod
 javac -encoding UTF-8 -d build src/model/*.java src/service/*.java src/app/*.java
 java -cp build app.Main
 ```
@@ -50,24 +53,24 @@ Kalıtım zinciri üç seviyeli: Islem → Gider → SabitGider.
 - Otomatik sıra numarası için static sayaç
 - Soyut sınıf ve iki soyut metot, alt sınıflarda ezilmiş
 - Üst sınıf türünden dizi ile çok biçimlilik
-- Menü, işlem listesi, bütçe özeti, işlem türü analizi
-- Hatalı menü girişinde çökmeme
+- Menü, işlem listesi, bütçe özeti, işlem türü analizi, ay filtresi
+- Gelir ve gider ekleme akışları, tarih ve kategori doğrulaması
+- Hatalı girişte çökmeme
 
 ## Sıradaki özellikler
 
 | Özellik | Hafta | Planlanan tarih |
 |---|---|---|
-| Gelir ve gider ekleme ekranları | 9-10 | 17-30 Kasım |
 | Arayüz ve Comparable | 9 | 24-30 Kasım |
 | Özel istisna ve try-catch | 10 | 24-30 Kasım |
-| ArrayList, HashMap, Repository\<T\> | 11-12 | 1-7 Aralık |
+| ArrayList, HashMap, Repository<T> | 11-12 | 1-7 Aralık |
 | Dosya işlemleri | 13 | 1-7 Aralık |
 | Lambda ve Stream raporları | 15 | 8-14 Aralık |
-| JUnit testleri, Javadoc | 12 | 8-17 Aralık |
+| JUnit testleri | 12 | 8-17 Aralık |
 
 ## Notlar
 
-- Kod, dersin ilk sekiz haftasında işlenen konularla sınırlı tutuldu. Sonraki konular
+- Kod, dersin ilk on haftasında işlenen konularla sınırlı tutuldu. Sonraki konular
   işlendikçe eklenecek, böylece sunumda her satır açıklanabiliyor.
-- Yapay zekâdan taslak ve derleme kontrolü için destek alındı. Ayrıntı final raporunun
-  10. bölümünde.
+- Kaynak dosyalar ASCII tutuldu, belgeler tam Türkçe karakter kullanır.
+- Yapay zekâ kullanımı raporun 9.1 bölümünde açıklanmıştır.

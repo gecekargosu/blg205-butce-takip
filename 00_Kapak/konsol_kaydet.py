@@ -8,9 +8,9 @@ import subprocess
 from pathlib import Path
 
 KOK = Path(__file__).resolve().parent.parent
-KAYIT = KOK / "03_Iskelet_Kod" / "konsol-kayitlari"
+KAYIT = KOK / "Kod" / "konsol-kayitlari"
 JAVA = r"C:/Program Files/Java/jdk-25/bin/java.exe"
-SINIF = KOK / "03_Iskelet_Kod" / "build"
+SINIF = KOK / "Kod" / "build"
 
 
 def oturum(ad, komutlar):

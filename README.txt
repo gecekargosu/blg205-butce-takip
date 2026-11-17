@@ -9,11 +9,11 @@ Cengiz Kılıç, 251205027, Yapay Zekâ ve Makine Öğrenmesi
             ile proje kök dizini açılıp src klasörü kaynak olarak gösterilebilir.
 
 2) DERLEME
-   cd 03_Iskelet_Kod
+   cd Kod
    javac -encoding UTF-8 -d build src/model/*.java src/service/*.java src/app/*.java
 
 3) ÇALIŞTIRMA
-   cd 03_Iskelet_Kod
+   cd Kod
    java -cp build app.Main
 
 4) MENÜ
@@ -45,9 +45,9 @@ Cengiz Kılıç, 251205027, Yapay Zekâ ve Makine Öğrenmesi
    (bağlantı final tesliminden önce buraya yazılacak)
 
 9) PAKET İÇERİĞİ
-   01_Ara_Rapor.pdf          ara rapor, 13 sayfa
-   02_Ara_Teslim_UML/        UML sınıf diyagramı, pdf (iki sayfa) ve png
-   03_Iskelet_Kod/src/       sekiz java dosyası, üç paket
-   03_Iskelet_Kod/javadoc/   sınıf ve metot belgeleri (index.html tarayıcıda açılır)
-   04_Kalan_Isler_ve_Takvim/ kalan işler ve takvim, pdf
+   Rapor.pdf          ara rapor, 13 sayfa
+   UML/        UML sınıf diyagramı, pdf (iki sayfa) ve png
+   Kod/src/       sekiz java dosyası, üç paket
+   Kod/javadoc/   sınıf ve metot belgeleri (index.html tarayıcıda açılır)
+   Kalan_Isler/ kalan işler ve takvim, pdf
    README.txt                bu dosya
