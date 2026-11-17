@@ -39,9 +39,10 @@ Cengiz Kilic - 251205027 - Yapay Zeka ve Makine Ogrenmesi
    Final tesliminde eklenecek 5-8 dakikalik ekran kaydi baglantisi buraya yazilacak.
 
 8) PAKET ICERIGI
-   00_ARA_TESLIM_OKU.txt    paket rehberi, yonerge maddelerinin karsiligi
-   01_Ara_Rapor.pdf         ara rapor, on sayfa
-   02_Ara_Teslim_UML/       UML sinif diyagrami (pdf, png, svg) + final plan sayfasi
-   03_Iskelet_Kod/src/      sekiz java dosyasi, uc paket
-   03_Iskelet_Kod/konsol-kayitlari/  programin gercek calisma ciktilari
-   04_Kalan_Isler_ve_Takvim/ kalan isler, takvim, riskler
+   01_Ara_Rapor.pdf          ara rapor
+   02_Ara_Teslim_UML/        UML sinif diyagrami, pdf (iki sayfa) ve png
+   03_Iskelet_Kod/src/       sekiz java dosyasi, uc paket
+   03_Iskelet_Kod/javadoc/   sinif ve metot belgeleri, ek puan kalemi
+                             (index.html tarayicida acilir)
+   04_Kalan_Isler_ve_Takvim/ kalan isler ve takvim, pdf
+   README.txt                bu dosya
