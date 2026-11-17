@@ -47,7 +47,8 @@ pre .y { color: #7ec699; }
 .ekran { border: 0.75pt solid #bbb; background: #fafafa; padding: 6pt 8pt; margin: 4pt 0 10pt 0;
          font-family: Consolas, monospace; font-size: 8.2pt; line-height: 1.28; white-space: pre-wrap;
          page-break-inside: avoid; }
-.girdi { font-size: 8.8pt; font-weight: normal; color: #555; font-family: Consolas, monospace; }
+.girdi { font-size: 8.8pt; font-weight: normal; color: #555; font-family: Consolas, monospace;
+         margin: 0 0 5pt 0; }
 .altbilgi-not { font-size: 9pt; color: #555; font-style: italic; margin-top: -4pt; margin-bottom: 10pt; }
 .sayfa { page-break-after: always; }
 .kapak { text-align: center; height: 245mm; position: relative; }
@@ -117,11 +118,43 @@ def kapak():
     <tr><td class="b">Öğretim Üyesi</td><td class="i">:</td><td>Doç. Dr. Aykut Diker</td></tr>
     <tr><td class="b">Grup No</td><td class="i">:</td><td>— (bireysel proje)</td></tr>
     <tr><td class="b">Proje Türü</td><td class="i">:</td><td>Bireysel proje</td></tr>
-    <tr><td class="b">Teslim Tarihi</td><td class="i">:</td><td>16.11.2026</td></tr>
+    <tr><td class="b">Teslim Tarihi</td><td class="i">:</td><td>22.11.2026</td></tr>
   </table>
 </div>
 <div class="sayfa"></div>
 """
+
+
+KOD_GOREV = {
+    "app/Main.java": "Menü, kullanıcıdan veri okuma, doğrulama akışı ve program döngüsü",
+    "model/Islem.java": "Gelir ve giderin ortak alanları, doğrulama, iki soyut metot",
+    "model/Gelir.java": "Gelir kaydı, kaynak alanı, bütçeye artı yönde etki",
+    "model/Gider.java": "Gider kaydı, ödeme yöntemi, bütçeye eksi yönde etki",
+    "model/SabitGider.java": "Her ay tekrarlayan gider, ödeme günü alanı",
+    "model/Kategori.java": "Kategori adı ve türü, static sayaçla otomatik numara",
+    "model/ButceHesabi.java": "Hesap sahibi, başlangıç bakiyesi, aylık limit kontrolü",
+    "service/ButceService.java": "İş mantığının tamamı, listeleme, toplamlar, tür analizi, ay filtresi",
+}
+
+
+def kod_tablosu():
+    """Kaynak dosyalari satir sayisi ve gorevleriyle listeler."""
+    kok = KOK / "03_Iskelet_Kod" / "src"
+    satirlar = []
+    toplam = 0
+    for yol in sorted(kok.rglob("*.java")):
+        anahtar = yol.relative_to(kok).as_posix()
+        adet = len(yol.read_text(encoding="utf-8").splitlines())
+        toplam += adet
+        satirlar.append(
+            "<tr><td><code>%s</code></td><td>%d</td><td>%s</td></tr>"
+            % (anahtar, adet, KOD_GOREV.get(anahtar, ""))
+        )
+    satirlar.append(
+        "<tr><td><b>Toplam</b></td><td><b>%d</b></td><td>%d dosya, uc paket</td></tr>"
+        % (toplam, len(list(kok.rglob("*.java"))))
+    )
+    return "\n".join(satirlar)
 
 
 def govde(icindekiler="<!--TOC-->"):
@@ -133,6 +166,7 @@ def govde(icindekiler="<!--TOC-->"):
     d_ekle = konsol_blok("d.txt", "YENI GIDER", "Kayit eklendi")
     b_hata = konsol_blok("b.txt", "YENI GELIR", "Hata: tutar")
     c_hata = konsol_blok("c.txt", "YENI GIDER", "Hata: boyle bir kategori")
+    kod_tablo = kod_tablosu()
 
     return f"""
 {icindekiler}
@@ -221,6 +255,14 @@ kontrolü.</td></tr>
 </table>
 
 <img src="file:///{UML.as_posix()}" style="width:100%; border:0.75pt solid #ccc">
+
+<h2>2.3 Kod dosyaları ve görevleri</h2>
+<p>Raporun bundan sonraki bölümleri aşağıdaki dosyaları anlatır. Satır sayıları kaynak
+koddan okunur, elle yazılmamıştır.</p>
+<table>
+<tr><th style="width:44mm">Dosya</th><th style="width:16mm">Satır</th><th>Görevi</th></tr>
+{kod_tablo}
+</table>
 
 <h1>3. NYP İlkelerinin Uygulanması</h1>
 <p>Aşağıdaki tablo, yönergenin üçüncü bölümündeki sekiz gereksinimi kodda hangi sınıfın karşıladığıyla
@@ -390,16 +432,20 @@ normal akışı, son iki görüntü hatalı giriş senaryolarını gösterir.</p
 <h2>6.4 Tür analizi</h2>
 <div class="ekran">{e_analiz}</div>
 
-<h2>6.5 Gelir ekleme <span class="girdi">girdi: Kitap telifi / 1500,50 / 15.11.2026 / Maas / Telif</span></h2>
+<h2>6.5 Gelir ekleme</h2>
+<p class="girdi">Girdi: Kitap telifi / 1500,50 / 15.11.2026 / Maas / Telif</p>
 <div class="ekran">{a_ekle}</div>
 
-<h2>6.6 Gider ekleme <span class="girdi">girdi: Kirtasiye / 350 / 13.11.2026 / Market / Nakit</span></h2>
+<h2>6.6 Gider ekleme</h2>
+<p class="girdi">Girdi: Kirtasiye / 350 / 13.11.2026 / Market / Nakit</p>
 <div class="ekran">{d_ekle}</div>
 
-<h2>6.7 Hatalı giriş, tutar sayı değil <span class="girdi">girdi: tutar abc</span></h2>
+<h2>6.7 Hatalı giriş, tutar sayı değil</h2>
+<p class="girdi">Girdi: tutar abc</p>
 <div class="ekran">{b_hata}</div>
 
-<h2>6.8 Hatalı giriş, olmayan kategori <span class="girdi">girdi: kategori Yok</span></h2>
+<h2>6.8 Hatalı giriş, olmayan kategori</h2>
+<p class="girdi">Girdi: kategori Yok</p>
 <div class="ekran">{c_hata}</div>
 <p>Her iki hatada da program kapanmıyor, kayıt eklemiyor ve menüye geri dönüyor.</p>
 
